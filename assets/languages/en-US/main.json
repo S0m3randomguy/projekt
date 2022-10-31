@@ -1,0 +1,24 @@
+{
+    "login": 
+    {
+        "login_title"           : "Log in",
+        "username_placeholder"  : "Username/Email",
+        "password_placeholder"  : "Password",
+        "forgot_password"       : "Forgot password?",
+        "not_a_member"          : "Not a member?",
+        "sign_up_now"           : "Sign up now"
+    },
+
+    "register":
+    {
+        "register_title"            : "Register",
+        "full_name_placeholder"     : "Full name",
+        "username_placeholder"      : "Username",
+        "email_placeholder"         : "Email",
+        "password_placeholder"      : "Password",
+        "confirmation_placeholder"  : "Confirm password",
+        "terms_and_conditions"      : "I accept all terms and conditions",
+        "already_a_member"          : "Already a member?",
+        "log_in_now"                : "Log in now"
+    }
+}
