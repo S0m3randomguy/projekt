@@ -1,5 +1,6 @@
 /* INITIALIZATION */
 // Icon definitions
+
 const ICON_SHOW_PASSWORD = "ri-eye-line";
 const ICON_HIDE_PASSWORD = "ri-eye-off-line";
 
