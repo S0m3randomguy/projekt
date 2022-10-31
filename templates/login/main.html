@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login/styles.css' %}"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <title>Log in</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Log in</span>
+
+                <form action="success/">
+                    <div class="input-field">
+                        {{ login_form.username }}
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ login_form.password }}
+                        <i class="ri-mail-line"></i>
+                        <i class="ri-eye-off-line showHidePw" id="password_toggle_login"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="button" value="Log in">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="#" class="text signup-link">Sign up Now</a>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Register</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        {{ register_form.name }}
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ register_form.username }}
+                        <i class="ri-account-circle-line"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ register_form.email }}
+                        <i class="ri-mail-line"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ register_form.password }}
+                        <i class="ri-lock-line"></i>
+                        <i class="ri-eye-off-line showHidePw" id="password_toggle_register"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ register_form.confirm }}
+                        <i class="ri-lock-line"></i>
+                        <i class="ri-eye-off-line showHidePw" id="confirmation_toggle"></i>
+                    </div>
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon" required>
+                            <label for="termCon" class="text">I accept all terms and conditions</label>
+                        </div>
+                    </div>
+                    <div class="input-field button">
+                        <input type="button" value="Sign up">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a href="#" class="text login-link">Log in Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/login/script.js' %}"></script>
+</body>
+</html>
