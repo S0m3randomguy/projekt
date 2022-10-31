@@ -1,6 +1,5 @@
 /* INITIALIZATION */
 // Icon definitions
-console.log(document.getElementById("confirmation_field").type)
 const ICON_SHOW_PASSWORD = "ri-eye-line";
 const ICON_HIDE_PASSWORD = "ri-eye-off-line";
 
