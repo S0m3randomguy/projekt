@@ -1,7 +1,6 @@
 from django import forms
-from .language import Language
+from .language import *
 
-LANGUAGE = "en-US" # [PLACEHOLDER]
 language = Language(LANGUAGE)
 
 SECTION_LOGIN       = language.login

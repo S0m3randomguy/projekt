@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import *
-from .language import Language
+from .language import *
 
 LOGIN_FILE = "login/main.html"
-LANGUAGE   = "en-US" # [PLACEHOLDER]
 
 def home(request):
     return HttpResponseRedirect("/login")
