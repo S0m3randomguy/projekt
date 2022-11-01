@@ -1,7 +1,13 @@
 from json import loads
+from configparser import ConfigParser
+
+CFG_FILE = "setup.ini"
+config = ConfigParser()
+
+config.read(CFG_FILE)
 
 ENCODING = "utf-8"
-LANGUAGE = "hr"
+LANGUAGE = config["language"]["language"]
 
 HEADER  = "assets/languages/{lang}/header.json"
 MAIN    = "assets/languages/{lang}/{name}"
