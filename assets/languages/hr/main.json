@@ -13,7 +13,7 @@
     {
         "register_title"            : "Registriraj se",
         "full_name_placeholder"     : "Puno ime",
-        "username_placeholder"      : "Koriničko ime",
+        "username_placeholder"      : "Korisničko ime",
         "email_placeholder"         : "E-pošta",
         "password_placeholder"      : "Zaporka",
         "confirmation_placeholder"  : "Potvrdi zaporku",
