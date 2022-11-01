@@ -19,7 +19,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login">
-                <span class="title">Log in</span>
+                <span class="title">{{ language.login.login_title }}</span>
 
                 <form action="success/">
                     <div class="input-field">
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="checkbox-text">
-                        <a href="#" class="text">Forgot password?</a>
+                        <a href="#" class="text">{{ language.login.forgot_password }}</a>
                     </div>
 
                     <div class="input-field button">
@@ -42,15 +42,15 @@
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">Not a member?
-                        <a href="#" class="text signup-link">Sign up Now</a>
+                    <span class="text">{{ language.login.not_a_member }}
+                        <a href="#" class="text signup-link">{{ language.login.sign_up_now }}</a>
                     </span>
                 </div>
             </div>
 
             <!-- Registration Form -->
             <div class="form signup">
-                <span class="title">Register</span>
+                <span class="title">{{ language.register.register_title }}</span>
 
                 <form action="#">
                     <div class="input-field">
@@ -78,7 +78,7 @@
                     <div class="checkbox-text">
                         <div class="checkbox-content">
                             <input type="checkbox" id="termCon" required>
-                            <label for="termCon" class="text">I accept all terms and conditions</label>
+                            <label for="termCon" class="text">{{ language.register.terms_and_conditions }}</label>
                         </div>
                     </div>
                     <div class="input-field button">
@@ -87,8 +87,8 @@
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">Already a member?
-                        <a href="#" class="text login-link">Log in Now</a>
+                    <span class="text">{{ language.register.already_a_member }}
+                        <a href="#" class="text login-link">{{ language.register.log_in_now }}</a>
                     </span>
                 </div>
             </div>

@@ -1,0 +1,24 @@
+{
+    "login": 
+    {
+        "login_title"           : "Prijavi se",
+        "username_placeholder"  : "Korisničko ime/E-pošta",
+        "password_placeholder"  : "Zaporka",
+        "forgot_password"       : "Zaboravio si zaporku?",
+        "not_a_member"          : "Nemaš račun?",
+        "sign_up_now"           : "Registriraj se"
+    },
+
+    "register":
+    {
+        "register_title"            : "Registriraj se",
+        "full_name_placeholder"     : "Puno ime",
+        "username_placeholder"      : "Korisničko ime",
+        "email_placeholder"         : "E-pošta",
+        "password_placeholder"      : "Zaporka",
+        "confirmation_placeholder"  : "Potvrdi zaporku",
+        "terms_and_conditions"      : "Prihvaćam sve odredbe i uvjete",
+        "already_a_member"          : "Imaš račun?",
+        "log_in_now"                : "Prijavi se"
+    }
+}
