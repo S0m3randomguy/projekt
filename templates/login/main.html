@@ -21,7 +21,8 @@
             <div class="form login">
                 <span class="title">{{ language.login.login_title }}</span>
 
-                <form action="success/">
+                <form action="/login/" method="post">
+                    {% csrf_token %}
                     <div class="input-field">
                         {{ login_form.username }}
                         <i class="ri-user-line"></i>
@@ -37,7 +38,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Log in">
+                        <input type="submit" value={{ language.login.login_title }}>
                     </div>
                 </form>
 
@@ -52,7 +53,8 @@
             <div class="form signup">
                 <span class="title">{{ language.register.register_title }}</span>
 
-                <form action="#">
+                <form action="/register/">
+                    {% csrf_token %}
                     <div class="input-field">
                         {{ register_form.name }}
                         <i class="ri-user-line"></i>
