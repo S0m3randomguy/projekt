@@ -1,5 +1,5 @@
 from django import forms
-from ..projekt.language import *
+from projekt.language import *
 
 language = Language(LANGUAGE)
 

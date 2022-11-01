@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import *
-from ..projekt.language import *
+from projekt.language import *
 
 LOGIN_FILE = "login/main.html"
 

@@ -1,7 +1,7 @@
 from json import loads
 from configparser import ConfigParser
 
-CFG_FILE = "setup.ini"
+CFG_FILE = "assets/setup.ini"
 config = ConfigParser()
 
 config.read(CFG_FILE)
