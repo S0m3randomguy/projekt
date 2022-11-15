@@ -18,7 +18,8 @@ body{
     position: relative;
     max-width: 500px;
     width: 100%;
-    background: #fff;
+    border-radius: 5px;
+    background: #2e2e2e;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     font-family: "Arial";
     overflow: hidden;
@@ -37,7 +38,7 @@ body{
 .container .form{
     width: 50%;
     padding: 30px;
-    background-color: #fff;
+    background-color: #2e2e2e;
     transition: margin-left 0.18s ease;
 }
 
@@ -61,12 +62,19 @@ body{
 }
 
 .container .form .title{
+    color: #ff8800;
+    background: -webkit-linear-gradient(#db7500, #ff8800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 27px;
-    font-weight: 600;
+    font-size: 30px;
+    padding: 10px;
+    font-weight: 900;
+    border-bottom: 1px solid;
+    border-color: #fff;
 }
 
 .form .input-field{
@@ -80,11 +88,11 @@ body{
     position: absolute;
     height: 100%;
     width: 100%;
+    background-color: #444444;
     padding: 0 35px;
     border: none;
     outline: none;
     font-size: 16px;
-    border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
 }
@@ -97,13 +105,13 @@ body{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
+    color: #ff8800;
     font-size: 23px;
     transition: all 0.2s ease;
 }
 
 .input-field input:is(:focus, :valid) ~ i{
-    color: #ff3333;
+    color: #ff8800;
 }
 
 .input-field i.icon{
@@ -129,16 +137,16 @@ body{
 
 .checkbox-content input{
     margin: 0 8px -2px 4px;
-    accent-color: #ff3333;
+    accent-color: #ff8800;
 }
 
 .form .text{
-    color: #333;
+    color: #6e6e6e;
     font-size: 14px;
 }
 
 .form a.text{
-    color: #ff3333;
+    color: #ff8800;
     text-decoration: none;
 }
 .form a:hover{
@@ -151,18 +159,18 @@ body{
 
 .form .button input{
     border: none;
-    color: #fff;
+    color: #6e6e6e;
     font-size: 17px;
     font-weight: 500;
     letter-spacing: 1px;
     border-radius: 6px;
-    background-color: #ff3333;
+    background-color: #494949;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .button input:hover{
-    background-color: #ff0a0a;
+    background-color: #ff8800;
 }
 
 .form .login-signup{
