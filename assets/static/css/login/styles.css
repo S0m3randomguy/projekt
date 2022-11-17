@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -9,31 +10,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: red;
+    background-image: linear-gradient(to right, red , #ff6021);
 }
 
-#bg {
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-}
-
-.dim {
-    position: absolute;
-    background-color: #000;
-    width: 100%;
-    height: 100%;
-    opacity: 50%;
-}
-
-/* forms */
 .container{
     position: relative;
     max-width: 500px;
     width: 100%;
-    border-radius: 5px;
-    background: #2e2e2e;
-    box-shadow: 0 0px 10px #0f0f0f;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     font-family: "Arial";
     overflow: hidden;
     margin: 0 20px;
@@ -47,13 +33,11 @@ body{
     transition: height 0.2s ease;
 }
 
+
 .container .form{
     width: 50%;
     padding: 30px;
-    background: radial-gradient(
-        40% 100% at 50% top,
-        #3b3b3b, #1f1f1f
-        );
+    background-color: #fff;
     transition: margin-left 0.18s ease;
 }
 
@@ -76,24 +60,15 @@ body{
     height: 680px;
 }
 
-/* title */
 .container .form .title{
-    color: #ff8800;
-    background: -webkit-linear-gradient(#db7500, #ff8800);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    padding: 10px;
-    font-weight: 900;
-    border-bottom: 1px solid;
-    border-color: #fff;
+    font-size: 27px;
+    font-weight: 600;
 }
 
-/* input fields */
 .form .input-field{
     position: relative;
     height: 50px;
@@ -105,17 +80,11 @@ body{
     position: absolute;
     height: 100%;
     width: 100%;
-    color: #e6e6e6;
-    background: radial-gradient(
-        30% 200% at 50% top,
-        #616161, #353535
-        );
-    box-shadow: 0 3px 15px #1f1f1f;
-    padding: 0 45px;
+    padding: 0 35px;
     border: none;
     outline: none;
     font-size: 16px;
-    font-weight: 600;
+    border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
 }
@@ -128,29 +97,24 @@ body{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    padding: 10px;
-    color: #ff8800;
+    color: #999;
     font-size: 23px;
     transition: all 0.2s ease;
 }
 
 .input-field input:is(:focus, :valid) ~ i{
-    color: #ff8800;
+    color: #ff3333;
 }
 
-/* icons */
 .input-field i.icon{
     left: 0;
 }
-
-/* show hide password */
 .input-field i.showHidePw{
     right: 0;
     cursor: pointer;
     padding: 10px;
 }
 
-/* checkbox */
 .form .checkbox-text{
     display: flex;
     align-items: center;
@@ -165,95 +129,43 @@ body{
 
 .checkbox-content input{
     margin: 0 8px -2px 4px;
-    accent-color: #ff8800;
+    accent-color: #ff3333;
 }
 
-/* not a member */
 .form .text{
-    color: #6e6e6e;
+    color: #333;
     font-size: 14px;
 }
 
-/* forgot password and sign up now text */
 .form a.text{
-    color: #ff8800;
+    color: #ff3333;
     text-decoration: none;
 }
 .form a:hover{
     text-decoration: underline;
 }
 
-/* log/sign in button */
 .form .button{
     margin-top: 35px;
 }
 
 .form .button input{
     border: none;
-    color: #6e6e6e;
+    color: #fff;
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 1px;
-    border-radius: 4px;
-    background-color: #494949;
+    border-radius: 6px;
+    background-color: #ff3333;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .button input:hover{
-    color: #e6e6e6;
-    background: radial-gradient(
-        30% 200% at 50% top,
-        #ff8800, #ff8800);
+    background-color: #ff0a0a;
 }
 
 .form .login-signup{
     margin-top: 30px;
     text-align: center;
-}
-
-/* change language section */
-.languages {
-    position: absolute;
-    background: radial-gradient(
-        45% 150% at 50% top,
-        #464646, #1f1f1f
-        );
-    margin: 20px;
-    padding: 0.2rem;
-    width: 17%;
-    right: 0px;
-    bottom: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    box-shadow: 0 0px 10px #0f0f0f;
-}
-
-#american {
-    margin: 8px;
-    width: 42%;
-    height: 42%;
-    box-shadow: 0 5px 10px #0f0f0f;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform .1s;
-}
-
-#american:hover {
-    transform: scale(1.05);
-}
-
-#croatian {
-    margin: 8px;
-    width: 42%;
-    height: 42%;
-    box-shadow: 0 5px 10px #0f0f0f;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform .1s;
-}
-
-#croatian:hover {
-    transform: scale(1.05);
 }
