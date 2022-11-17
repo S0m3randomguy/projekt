@@ -197,7 +197,6 @@ body{
     border-radius: 4px;
     background-color: #494949;
     cursor: pointer;
-    transition: background .3s;
 }
 
 .button input:hover{
