@@ -2,7 +2,7 @@
     "login": 
     {
         "login_title"           : "Log in",
-        "username_placeholder"  : "Username/Email",
+        "username_placeholder"  : "Username/E-mail",
         "password_placeholder"  : "Password",
         "forgot_password"       : "Forgot password?",
         "not_a_member"          : "Not a member?",
@@ -14,7 +14,7 @@
         "register_title"            : "Register",
         "full_name_placeholder"     : "Full name",
         "username_placeholder"      : "Username",
-        "email_placeholder"         : "Email",
+        "email_placeholder"         : "E-mail",
         "password_placeholder"      : "Password",
         "confirmation_placeholder"  : "Confirm password",
         "terms_and_conditions"      : "I accept all terms and conditions",

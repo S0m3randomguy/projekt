@@ -14,8 +14,8 @@
     <title>Log in</title>
 </head>
 
-<body>
-
+<body id="bg" style="background-image: url('{% static 'images/mountains.jpg' %}');">
+    <div class="dim"></div>
     <div class="container">
         <div class="forms">
             <div class="form login">
@@ -95,6 +95,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="languages">
+        <img src="{% static 'images/us-flag.png' %}" id="american">
+        <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
     </div>
     <script src="{% static 'js/login/script.js' %}"></script>
 </body>
