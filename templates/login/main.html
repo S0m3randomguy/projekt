@@ -14,8 +14,8 @@
     <title>Log in</title>
 </head>
 
-<body id="bg" style="background-image: url('{% static 'images/mountains.jpg' %}');">
-    <div class="dim"></div>
+<body>
+
     <div class="container">
         <div class="forms">
             <div class="form login">
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="submit" value="{{ language.login.login_title }}">
+                        <input type="submit" value={{ language.login.login_title }}>
                     </div>
                 </form>
 
@@ -95,10 +95,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="languages">
-        <img src="{% static 'images/us-flag.png' %}" id="american">
-        <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
     </div>
     <script src="{% static 'js/login/script.js' %}"></script>
 </body>
