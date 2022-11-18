@@ -32,7 +32,10 @@ body{
     max-width: 500px;
     width: 100%;
     border-radius: 5px;
-    background: #2e2e2e;
+    background: radial-gradient(
+        40% 100% at 50% top,
+        #3b3b3b, #1f1f1f
+        );
     box-shadow: 0 0px 10px #0f0f0f;
     font-family: "Arial";
     overflow: hidden;
@@ -221,7 +224,7 @@ body{
         );
     margin: 20px;
     padding: 0.2rem;
-    width: 17%;
+    width: 272.5px;
     right: 0px;
     bottom: 0px;
     display: flex;
@@ -232,12 +235,13 @@ body{
 }
 
 #american {
-    margin: 8px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    margin: 0px 8px 8px 8px;
     width: 42%;
-    height: 42%;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
-    cursor: pointer;
     transition: transform .1s;
 }
 
@@ -246,12 +250,11 @@ body{
 }
 
 #croatian {
-    margin: 8px;
+    position: relative;
+    margin: 8px 0px 8px 8px;
     width: 42%;
-    height: 42%;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
-    cursor: pointer;
     transition: transform .1s;
 }
 
