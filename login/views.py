@@ -11,11 +11,12 @@ def home(request):
 
 def login(request):
     if request.method == "GET":
-        language = request.GET.get("lang", None)
+        lang = request.GET.get("lang", None)
+        language = Language(verify_language(lang) or "en-US")
         context = {
-            "login_form"    : LoginForm(),
-            "register_form" : RegisterForm(),
-            "language"      : Language(verify_language(language) or "en-US")
+            "login_form"    : get_login_form(language),
+            "register_form" : get_register_form(language),
+            "language"      : language
         }
         return render(request or None, LOGIN_FILE, context)
 
