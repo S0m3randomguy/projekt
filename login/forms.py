@@ -3,8 +3,8 @@ from projekt.language import *
 
 language = Language(LANGUAGE)
 
-SECTION_LOGIN       = language.login
-SECTION_REGISTER    = language.register
+SECTION_LOGIN       = language.sections["login"]
+SECTION_REGISTER    = language.sections["register"]
 
 USERNAME_PLACEHOLDER = SECTION_LOGIN["username_placeholder"]
 PASSWORD_PLACEHOLDER = SECTION_LOGIN["password_placeholder"]

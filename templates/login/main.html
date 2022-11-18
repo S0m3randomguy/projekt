@@ -19,7 +19,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login">
-                <span class="title">{{ language.login.login_title }}</span>
+                <span class="title">{{ language.sections.login.login_title }}</span>
 
                 <form action="/login/" method="post">
                     {% csrf_token %}
@@ -34,24 +34,24 @@
                     </div>
 
                     <div class="checkbox-text">
-                        <a href="#" class="text">{{ language.login.forgot_password }}</a>
+                        <a href="#" class="text">{{ language.sections.login.forgot_password }}</a>
                     </div>
 
                     <div class="input-field button">
-                        <input type="submit" value="{{ language.login.login_title }}">
+                        <input type="submit" value="{{ language.sections.login.login_title }}">
                     </div>
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">{{ language.login.not_a_member }}
-                        <a href="#" class="text signup-link">{{ language.login.sign_up_now }}</a>
+                    <span class="text">{{ language.sections.login.not_a_member }}
+                        <a href="#" class="text signup-link">{{ language.sections.login.sign_up_now }}</a>
                     </span>
                 </div>
             </div>
 
             <!-- Registration Form -->
             <div class="form signup">
-                <span class="title">{{ language.register.register_title }}</span>
+                <span class="title">{{ language.sections.register.register_title }}</span>
 
                 <form action="/register/">
                     {% csrf_token %}
@@ -80,7 +80,7 @@
                     <div class="checkbox-text">
                         <div class="checkbox-content">
                             <input type="checkbox" id="termCon" required>
-                            <label for="termCon" class="text">{{ language.register.terms_and_conditions }}</label>
+                            <label for="termCon" class="text">{{ language.sections.register.terms_and_conditions }}</label>
                         </div>
                     </div>
                     <div class="input-field button">
@@ -89,8 +89,8 @@
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">{{ language.register.already_a_member }}
-                        <a href="#" class="text login-link">{{ language.register.log_in_now }}</a>
+                    <span class="text">{{ language.sections.register.already_a_member }}
+                        <a href="#" class="text login-link">{{ language.sections.register.log_in_now }}</a>
                     </span>
                 </div>
             </div>
@@ -99,11 +99,19 @@
     <div class="languages">
         <a href="/login?lang=en-US">
             <img src="{% static 'images/us-flag.png' %}" id="american">
+            {% if language.lang == "en-US" %}
+                <span class="tooltip">{{ language.head.native_name }}</span>
+            {% else %}
                 <span class="tooltip">English</span>
+            {% endif %}
         </a>
         <a href="/login?lang=hr">
             <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
+            {% if language.lang == "hr" %}
+                <span class="tooltip">{{ language.head.native_name }}</span>
+            {% else %}
                 <span class="tooltip">Croatian</span>
+            {% endif %}
         </a>
     </div>
     <script src="{% static 'js/login/script.js' %}"></script>
