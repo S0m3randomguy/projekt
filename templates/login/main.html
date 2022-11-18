@@ -97,8 +97,12 @@
         </div>
     </div>
     <div class="languages">
-        <img src="{% static 'images/us-flag.png' %}" id="american">
-        <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
+        <a href="/login?lang=en-US">
+            <img src="{% static 'images/us-flag.png' %}" id="american">
+        </a>
+        <a href="/login?lang=hr">
+            <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
+        </a>
     </div>
     <script src="{% static 'js/login/script.js' %}"></script>
 </body>
