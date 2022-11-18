@@ -5,20 +5,33 @@ from projekt.language import *
 import os
 
 LOGIN_FILE = "login/main.html"
+GET_FORM = {
+    "login"     : get_login_form,
+    "register"  : get_register_form
+}
 
 def home(request):
     return HttpResponseRedirect("/login")
 
 def login(request):
-    if request.method == "GET":
-        lang = request.GET.get("lang", None)
-        language = Language(verify_language(lang) or "en-US")
-        context = {
-            "login_form"    : get_login_form(language),
-            "register_form" : get_register_form(language),
-            "language"      : language
-        }
-        return render(request or None, LOGIN_FILE, context)
+    lang = request.GET.get("lang", None)
+    language = Language(verify_language(lang) or "en-US")
+
+    if request.method == "POST":
+        form_type = request.POST.get("form", None)
+        form = GET_FORM[form_type or "login"](language, request.POST)
+
+        if form.is_valid():
+            # todo
+            return HttpResponseRedirect("/test")
+
+    context = {
+        "login_form"    : get_login_form(language),
+        "register_form" : get_register_form(language),
+        "language"      : language
+    }
+    return render(request or None, LOGIN_FILE, context)
+
 
 def verify_language(lang: str):
     languages = [name for name in os.listdir("assets/languages")]

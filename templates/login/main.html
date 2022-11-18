@@ -53,7 +53,7 @@
             <div class="form signup">
                 <span class="title">{{ language.sections.register.register_title }}</span>
 
-                <form action="/register/">
+                <form action="/login/" method="post">
                     {% csrf_token %}
                     <div class="input-field">
                         {{ register_form.name }}
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                     <div class="input-field button">
-                        <input type="button" value="Sign up">
+                        <input type="submit" value="Sign up">
                     </div>
                 </form>
 
