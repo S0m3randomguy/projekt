@@ -97,20 +97,20 @@
         </div>
     </div>
     <div class="languages">
-        <a href="/login?lang=en-US">
+        <a href="/login?lang=en-US" class="us">
             <img src="{% static 'images/us-flag.png' %}" id="american">
             {% if language.lang == "en-US" %}
-                <span class="tooltip">{{ language.head.native_name }}</span>
+                <span class="tooltip" id="eng">{{ language.head.native_name }}</span>
             {% else %}
-                <span class="tooltip">English</span>
+                <span class="tooltip" id="eng">English</span>
             {% endif %}
         </a>
-        <a href="/login?lang=hr">
+        <a href="/login?lang=hr" class="cr">
             <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
             {% if language.lang == "hr" %}
-                <span class="tooltip">{{ language.head.native_name }}</span>
+                <span class="tooltip" id="cro">{{ language.head.native_name }}</span>
             {% else %}
-                <span class="tooltip">Croatian</span>
+                <span class="tooltip" id="cro">Croatian</span>
             {% endif %}
         </a>
     </div>

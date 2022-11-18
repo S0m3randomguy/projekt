@@ -263,20 +263,57 @@ body{
 }
 
 .tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
+    opacity: 0;
+    width: 65%;
+    height: 47.5%;
+    background: radial-gradient(
+        48% 200% at 50% bottom,
+        #464646, #1f1f1f
+        );
+    color: #e6e6e6f3;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 0px 10px #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
     position: absolute;
     z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
+    bottom: 110%;
+    cursor: default;
+    transition: all .3s ease;
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+#eng {
+    position: absolute;
+    right: 120px;
+}
+
+#cro {
+    position: absolute;
+    right: -15px;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #464646 transparent transparent transparent;
+}
+
+.us:hover #eng {
+    opacity: 1;
+    transform: translate(0, -30%);
+  }
+
+.cr:hover #cro {
+    opacity: 1;
+    transform: translate(0, -30%);
   }
