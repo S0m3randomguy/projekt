@@ -1,8 +1,6 @@
 from django import forms
 from projekt.language import *
 
-language = Language(LANGUAGE)
-
 def get_login_form(lang: Language, request=None):
     SECTION_LOGIN        = lang.sections["login"]
 
