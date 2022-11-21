@@ -1,5 +1,6 @@
 from django import forms
 from projekt.language import *
+from .models import Account
 
 def get_login_form(lang: Language, request=None):
     SECTION_LOGIN        = lang.sections["login"]
@@ -34,40 +35,35 @@ def get_register_form(lang: Language, request=None):
     PASSWORD_PLACEHOLDER        = SECTION_REGISTER["password_placeholder"]
     CONFIRMATION_PLACEHOLDER    = SECTION_REGISTER["confirmation_placeholder"]
 
-    class RegisterForm(forms.Form):
-        name        = forms.CharField(max_length=100, required=True)
-        username    = forms.CharField(max_length=100, required=True)
-        email       = forms.CharField(max_length=100, required=True)
-        password    = forms.CharField(max_length=100, required=True)
-        confirm     = forms.CharField(max_length=100, required=True)
-
-        name.widget = forms.TextInput(attrs={
-            "type"          : "text",
-            "placeholder"   : FULL_NAME_PLACEHOLDER,
-        })
-
-        username.widget = forms.TextInput(attrs={
-            "type"          : "text",
-            "placeholder"   : USERNAME_PLACEHOLDER
-        })
-
-        email.widget = forms.TextInput(attrs={
-            "type"          : "text",
-            "placeholder"   : EMAIL_PLACEHOLDER
-        })
-
-        password.widget = forms.TextInput(attrs={
-            "type"          : "password",
-            "class"         : "password",
-            "placeholder"   : PASSWORD_PLACEHOLDER,
-            "id"            : "password_field_register"
-        })
-
-        confirm.widget = forms.TextInput(attrs={
-            "type"          : "password",
-            "class"         : "password",
-            "placeholder"   : CONFIRMATION_PLACEHOLDER,
-            "id"            : "confirmation_field"
-        })
+    class RegisterForm(forms.ModelForm):
+        class Meta:
+            model = Account
+            fields = ["name", "username", "email", "password", "confirm"]
+            widgets = {
+                "name" : forms.TextInput(attrs={
+                    "type"          : "text",
+                    "placeholder"   : FULL_NAME_PLACEHOLDER,
+                }),
+                "username": forms.TextInput(attrs={
+                    "type"          : "text",
+                    "placeholder"   : USERNAME_PLACEHOLDER,
+                }),
+                "email": forms.TextInput(attrs={
+                    "type"          : "text",
+                    "placeholder"   : EMAIL_PLACEHOLDER,
+                }),
+                "password": forms.TextInput(attrs={
+                    "type"          : "password",
+                    "class"         : "password",
+                    "placeholder"   : PASSWORD_PLACEHOLDER,
+                    "id"            : "password_field_register"
+                }),
+                "confirm": forms.TextInput(attrs={
+                    "type"          : "password",
+                    "class"         : "password",
+                    "placeholder"   : CONFIRMATION_PLACEHOLDER,
+                    "id"            : "confirmation_field"
+                })
+            }
 
     return RegisterForm(data=request)
