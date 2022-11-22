@@ -32,7 +32,10 @@ body{
     max-width: 500px;
     width: 100%;
     border-radius: 5px;
-    background: #2e2e2e;
+    background: radial-gradient(
+        40% 100% at 50% top,
+        #3b3b3b, #1f1f1f
+        );
     box-shadow: 0 0px 10px #0f0f0f;
     font-family: "Arial";
     overflow: hidden;
@@ -221,7 +224,7 @@ body{
         );
     margin: 20px;
     padding: 0.2rem;
-    width: 17%;
+    width: 272.5px;
     right: 0px;
     bottom: 0px;
     display: flex;
@@ -232,12 +235,11 @@ body{
 }
 
 #american {
-    margin: 8px;
+    position: relative;
+    margin: 8px 0px 8px 8px;
     width: 42%;
-    height: 42%;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
-    cursor: pointer;
     transition: transform .1s;
 }
 
@@ -246,15 +248,72 @@ body{
 }
 
 #croatian {
-    margin: 8px;
+    position: absolute;
+    right: 5px;
+    bottom: 8px;
+    margin: 0px 8px 8px 8px;
     width: 42%;
-    height: 42%;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
-    cursor: pointer;
     transition: transform .1s;
 }
 
 #croatian:hover {
     transform: scale(1.05);
 }
+
+.tooltip {
+    opacity: 0;
+    width: 65%;
+    height: 47.5%;
+    background: radial-gradient(
+        48% 200% at 50% bottom,
+        #464646, #1f1f1f
+        );
+    color: #e6e6e6f3;
+    text-align: center;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 0px 10px #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    cursor: default;
+    transition: all .3s ease;
+}
+
+#eng {
+    position: absolute;
+    right: 120px;
+}
+
+#cro {
+    position: absolute;
+    right: -15px;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #464646 transparent transparent transparent;
+}
+
+.us:hover #eng {
+    opacity: 1;
+    transform: translate(0, -30%);
+  }
+
+.cr:hover #cro {
+    opacity: 1;
+    transform: translate(0, -30%);
+  }
