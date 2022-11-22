@@ -19,7 +19,7 @@ def login(request):
 
     if request.method == "POST":
         form_type = request.POST.get("form", None)
-        form = GET_FORM[form_type or "login"](language, request.POST)
+        form = GET_FORM.get(form_type, get_login_form)(language, request.POST)
 
         if form.is_valid():
             # todo

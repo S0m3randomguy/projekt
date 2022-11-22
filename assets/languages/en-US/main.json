@@ -20,5 +20,10 @@
         "terms_and_conditions"      : "I accept all terms and conditions",
         "already_a_member"          : "Already a member?",
         "log_in_now"                : "Log in now"
+    },
+
+    "errors" : {
+        "min_length_error" : "%(name)s must be at least %(limit)s characters long.",
+        "max_length_error" : "%(name)s cannot be over %(limit)s  characters long"
     }
 }

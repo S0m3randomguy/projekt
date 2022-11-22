@@ -2,6 +2,9 @@ from django import forms
 from projekt.language import *
 from .models import Account
 
+MIN_USERNAME_LENGTH = 3
+MAX_USERNAME_LENGTH = 20
+
 def get_login_form(lang: Language, request=None):
     SECTION_LOGIN        = lang.sections["login"]
 
@@ -28,12 +31,14 @@ def get_login_form(lang: Language, request=None):
 
 def get_register_form(lang: Language, request=None):
     SECTION_REGISTER            = lang.sections["register"]
+    SECTION_ERRORS              = lang.sections["errors"]
 
     FULL_NAME_PLACEHOLDER       = SECTION_REGISTER["full_name_placeholder"]
     USERNAME_PLACEHOLDER        = SECTION_REGISTER["username_placeholder"]
     EMAIL_PLACEHOLDER           = SECTION_REGISTER["email_placeholder"]
     PASSWORD_PLACEHOLDER        = SECTION_REGISTER["password_placeholder"]
     CONFIRMATION_PLACEHOLDER    = SECTION_REGISTER["confirmation_placeholder"]
+    
 
     class RegisterForm(forms.ModelForm):
         class Meta:
@@ -65,5 +70,24 @@ def get_register_form(lang: Language, request=None):
                     "id"            : "confirmation_field"
                 })
             }
+            validators = {
+                "name": [
+                    validators.MinLengthValidator(
+                        MIN_USERNAME_LENGTH, 
+                    ),
+                    validators.MaxLengthValidator(
+                        MAX_USERNAME_LENGTH
+                    ),
+
+                ]
+            }
+
+        def clean(self):
+            cleaned = super().clean()
+            name        = cleaned.get("name")
+            username    = cleaned.get("username")
+            email       = cleaned.get("email")
+            password    = cleaned.get("password")
+            confirm     = cleaned.get("confirm")
 
     return RegisterForm(data=request)
