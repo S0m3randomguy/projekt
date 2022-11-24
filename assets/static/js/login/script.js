@@ -12,9 +12,6 @@ const MATCH_FIELDS = {
 }
 
 // Selecting from document
-const CONTAINER = document.querySelector(".container");
-const SIGN_UP   = document.querySelector(".signup-link");
-const LOG_IN    = document.querySelector(".login-link");
 const TOGGLES   = document.querySelectorAll(".showHidePw")
 
 /* SHOW/HIDE PASSWORD */
@@ -32,14 +29,3 @@ TOGGLES.forEach(toggle => {
         }
     })
 })
-
-/* CHANGE SIGNUP & LOGIN FORM */
-// Event handler #1 (sign up -> login)
-SIGN_UP.addEventListener("click", () => {
-    CONTAINER.classList.add("active");
-});
-
-// Event handler #2 (login -> sign up)
-LOG_IN.addEventListener("click", () => {
-    CONTAINER.classList.remove("active");
-});

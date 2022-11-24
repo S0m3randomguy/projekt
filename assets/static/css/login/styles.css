@@ -47,7 +47,6 @@ body{
     align-items: center;
     height: 440px;
     width: 200%;
-    transition: height 0.2s ease;
 }
 
 .container .form{
@@ -57,22 +56,13 @@ body{
         40% 100% at 50% top,
         #3b3b3b, #1f1f1f
         );
-    transition: margin-left 0.18s ease;
-}
-
-.container.active .login{
-    margin-left: -50%;
-    opacity: 0;
-    transition: margin-left 0.18s ease, opacity 0.15s ease;
 }
 
 .container .signup{
     opacity: 0;
-    transition: opacity 0.09s ease;
 }
 .container.active .signup{
     opacity: 1;
-    transition: opacity 0.2s ease;
 }
 
 .container.active .forms{
@@ -120,7 +110,6 @@ body{
     font-size: 16px;
     font-weight: 600;
     border-top: 2px solid transparent;
-    transition: all 0.2s ease;
 }
 
 .input-field input:is(:focus, :valid){
@@ -134,7 +123,6 @@ body{
     padding: 10px;
     color: #ff8800;
     font-size: 23px;
-    transition: all 0.2s ease;
 }
 
 .input-field input:is(:focus, :valid) ~ i{
@@ -200,7 +188,6 @@ body{
     border-radius: 4px;
     background-color: #494949;
     cursor: pointer;
-    transition: background .3s;
 }
 
 .button input:hover{
