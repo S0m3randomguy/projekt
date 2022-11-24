@@ -6,21 +6,28 @@ import os
 
 LOGIN_FILE      = "login/main.html"
 REGISTER_FILE   = "register/main.html"
+GET_FORM = {
+    "login"     : get_login_form,
+    "register"  : get_register_form
+}
 
-def form_method(func, template):
+def form_method(form_name, template):
     def method(request):
         lang = request.GET.get("lang", None)
         language = Language(verify_language(lang) or "en-US")
+        form_method = GET_FORM.get(form_name, None)
+        if form_method is None:
+            return HttpResponseRedirect("/")
 
         if request.method == "POST":
-            form = func(language, request)
+            form = form_method(language, request)
             if form.is_valid():
                 # todo
                 return HttpResponseRedirect("/test")
 
         context = {
-            "login_form"    : get_login_form(language),
-            "language"      : language
+            f"{form_name}_form"    : form_method(language),
+            "language"             : language
         }
         return render(request or None, template, context)
     return method
@@ -29,11 +36,11 @@ def home(request):
     return HttpResponseRedirect("/login")
 
 def login(request):
-    method = form_method(get_login_form, LOGIN_FILE)
+    method = form_method("login", LOGIN_FILE)
     return method(request)
 
 def register(request):
-    method = form_method(get_register_form, REGISTER_FILE)
+    method = form_method("register", REGISTER_FILE)
     return method(request)
 
 def verify_language(lang: str):
