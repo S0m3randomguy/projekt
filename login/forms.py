@@ -70,17 +70,6 @@ def get_register_form(lang: Language, request=None):
                     "id"            : "confirmation_field"
                 })
             }
-            validators = {
-                "name": [
-                    validators.MinLengthValidator(
-                        MIN_USERNAME_LENGTH, 
-                    ),
-                    validators.MaxLengthValidator(
-                        MAX_USERNAME_LENGTH
-                    ),
-
-                ]
-            }
 
         def clean(self):
             cleaned = super().clean()
