@@ -116,6 +116,7 @@ body{
     border-bottom-color: #5233ff;
 }
 
+/* icons */
 .input-field i{
     position: absolute;
     top: 50%;
@@ -129,13 +130,8 @@ body{
     color: #ff8800;
 }
 
-/* icons */
-.input-field i.icon{
-    left: 0;
-}
-
 /* show hide password */
-.input-field i.showHidePw{
+.input-field i.show-hide-pw{
     right: 0;
     cursor: pointer;
     padding: 10px;

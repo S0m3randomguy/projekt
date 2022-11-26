@@ -12,7 +12,7 @@ const MATCH_FIELDS = {
 }
 
 // Selecting from document
-const TOGGLES   = document.querySelectorAll(".showHidePw")
+const TOGGLES   = document.querySelectorAll(".show-hide-pw")
 
 /* SHOW/HIDE PASSWORD */
 // Get show/hide icons from ID
