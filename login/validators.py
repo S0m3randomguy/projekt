@@ -1,20 +1,45 @@
 from django.core.exceptions import ValidationError
 from projekt.language import Language
 
-class MinLengthValidator:
-    def __init__(self, lang: Language, value, name, limit):
-        SECTIONS_ERROR = lang.sections["errors"]
-        ERROR_MESSAGE  = SECTIONS_ERROR["min_length_error"]
+def get_error_message(lang: Language, code):
+    return lang.sections["errors"][code]
 
-        self.name  = name
-        self.limit = limit
+class Validator:
+    def __init__(self, lang: Language, code, condition, **kwargs):
+        message = get_error_message(lang, code)
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+        self.condition = condition
+
         self.error = ValidationError(
-            ERROR_MESSAGE, code="min_length_error",
-            params={
-                "name": self.name, "limit": self.limit
-            }
+            message, code=code,
+            params=kwargs
         )
     
     def __call__(self, value):
-        if not value > self.limit:
+        if not self.condition(value, self):
             raise self.error
+
+class MinLengthValidator(Validator):
+    def __init__(self, lang: Language, name, limit):
+        super().__init__(
+            lang, "min_length_error",
+            lambda value, obj: value >= obj.limit,
+            name=name, limit=limit
+        )
+
+class MaxLengthValidator(Validator):
+    def __init__(self, lang: Language, name, limit):
+        super().__init__(
+            lang, "max_length_error",
+            lambda value, obj: value < obj.limit,
+            name=name, limit=limit
+        )
+
+class CharsetValidator(Validator):
+    def __init__(self, lang: Language, name, *characters):
+        super().__init__(
+            lang, "charset_error",
+            lambda value, obj: value not in "".join(obj.chars),
+            chars=characters
+        )
