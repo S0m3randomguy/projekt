@@ -27,7 +27,7 @@ def get_login_form(lang: Language, request=None):
             "id"            : "password_field_login"
         })
     
-    return LoginForm(data=request)
+    return LoginForm(request.POST if request else None)
 
 def get_register_form(lang: Language, request=None):
     SECTION_REGISTER            = lang.sections["register"]
@@ -79,4 +79,4 @@ def get_register_form(lang: Language, request=None):
             password    = cleaned.get("password")
             confirm     = cleaned.get("confirm")
 
-    return RegisterForm(data=request)
+    return RegisterForm(request.POST if request else None)

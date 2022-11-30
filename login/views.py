@@ -15,18 +15,19 @@ def form_method(form_name, template):
     def method(request):
         lang = request.GET.get("lang", None)
         language = Language(verify_language(lang) or "en-US")
+
         form_method = GET_FORM.get(form_name, None)
         if form_method is None:
             return HttpResponseRedirect("/")
-
+        form = form_method(language, request)
+        
         if request.method == "POST":
-            form = form_method(language, request)
             if form.is_valid():
                 # todo
                 return HttpResponseRedirect("/test")
 
         context = {
-            f"{form_name}_form"    : form_method(language),
+            f"{form_name}_form"    : form,
             "language"             : language
         }
         return render(request or None, template, context)
