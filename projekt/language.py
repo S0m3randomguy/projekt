@@ -1,13 +1,7 @@
 from json import loads
 from configparser import ConfigParser
 
-CFG_FILE = "assets/setup.ini"
-config = ConfigParser()
-
-config.read(CFG_FILE)
-
 ENCODING = "utf-8"
-LANGUAGE = config["language"]["language"]
 
 HEADER  = "assets/languages/{lang}/header.json"
 MAIN    = "assets/languages/{lang}/{name}"
