@@ -60,3 +60,11 @@ class RegexValidator(Validator):
             lambda value, obj: len(re.findall(obj.regex, value)) == 1,
             name=name, regex=regex
         )
+
+class EmailValidator(RegexValidator):
+    def __init__(self, lang: Language, name):
+        expression = r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        super().__init__(
+            lang, name,
+            expression, "email_error"
+        )
