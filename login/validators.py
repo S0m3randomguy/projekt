@@ -46,7 +46,7 @@ class CharsetValidator(Validator):
             name=name, chars=characters
         )
 
-class ExtendedAsciiValidator:
+class ExtendedAsciiValidator(CharsetValidator):
     def __init__(self, lang: Language, name):
         chars = "".join([chr(x) for x in range(40, 126)])
         super().__init__(
