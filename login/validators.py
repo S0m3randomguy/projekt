@@ -45,6 +45,14 @@ class CharsetValidator(Validator):
             lambda value, obj: value not in "".join(obj.chars),
             name=name, chars=characters
         )
+
+class ExtendedAsciiValidator:
+    def __init__(self, lang: Language, name):
+        chars = "".join([chr(x) for x in range(40, 126)])
+        super().__init__(
+            lang, name,
+            chars
+        )
     
 class AlphanumericValidator(CharsetValidator):
     def __init__(self, lang: Language, name):
