@@ -2,7 +2,7 @@ from django import forms
 from projekt.language import *
 from .models import Account
 from configparser import ConfigParser
-from validators import (
+from .validators import (
     MinLengthValidator,
     MaxLengthValidator,
     CharsetValidator,
@@ -11,8 +11,9 @@ from validators import (
 )
 import string
 
-CONFIG_FILE = "assets/config.ini"
-config = ConfigParser(CONFIG_FILE)
+CONFIG_FILE = "assets/setup.ini"
+config = ConfigParser()
+config.read(CONFIG_FILE)
 
 ACCOUNT_SECTION     = "account"
 MIN_NAME_LENGTH     = config.get(ACCOUNT_SECTION, "MIN_NAME_LENGTH")
@@ -50,7 +51,6 @@ def get_login_form(lang: Language, request=None):
 
 def get_register_form(lang: Language, request=None):
     SECTION_REGISTER            = lang.sections["register"]
-    SECTION_ERRORS              = lang.sections["errors"]
 
     FULL_NAME_PLACEHOLDER       = SECTION_REGISTER["full_name_placeholder"]
     USERNAME_PLACEHOLDER        = SECTION_REGISTER["username_placeholder"]
