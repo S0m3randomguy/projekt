@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from projekt.language import Language
 import string
+import re
 
 def get_error_message(lang: Language, code):
     return lang.sections["errors"][code]
@@ -50,4 +51,12 @@ class AlphanumericValidator(CharsetValidator):
         super().__init__(
             lang, name,
             string.ascii_letters + string.digits
+        )
+
+class RegexValidator(Validator):
+    def __init__(self, lang: Language, name, regex, code=None):
+        super().__init__(
+            lang, code or "regex_error",
+            lambda value, obj: len(re.findall(obj.regex, value)) == 1,
+            name=name, regex=regex
         )
