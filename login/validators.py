@@ -76,3 +76,12 @@ class EmailValidator(RegexValidator):
             lang, name,
             expression, "email_error"
         )
+
+class StrengthValidator(Validator):
+    def __init__(self, lang: Language, name):
+        characters = (string.digits, string.punctuation, string.ascii_uppercase)
+        super().__init__(
+            lang, "strength_error",
+            lambda value, obj: any([x in obj.characters for x in obj.characters]),
+            name=name, characters=characters
+        )
