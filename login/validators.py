@@ -84,6 +84,6 @@ class StrengthValidator(Validator):
         characters = (string.digits, string.punctuation, string.ascii_uppercase)
         super().__init__(
             lang, "strength_error",
-            lambda value, obj: any([x in obj.characters for x in obj.characters]),
+            lambda value, obj: any([x in obj.characters for x in value]),
             name=name, characters=characters
         )
