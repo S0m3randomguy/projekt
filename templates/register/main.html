@@ -21,7 +21,7 @@
             <div class="form signup">
                 <span class="title">{{ language.sections.register.register_title }}</span>
 
-                <form action="/login/" method="post">
+                <form action="/register/" method="post">
                     {% csrf_token %}
                     <div class="input-field">
                         {{ register_form.name }}

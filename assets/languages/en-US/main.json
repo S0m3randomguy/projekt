@@ -31,6 +31,8 @@
     "errors": {
         "min_length_error" : "'%(name)s' must be at least %(limit)s character(s) long.",
         "max_length_error" : "'%(name)s' cannot be over %(limit)s character(s) long.",
-        "charset_error"    : "'%(name)s' must consist of only %(params)."
+        "charset_error"    : "'%(name)s' must consist of only %(params).",
+        "email_error"      : "'%(email) is not a valid e-mail address.'",
+        "mismatch_error"   : "Passwords must match."
     }
 }

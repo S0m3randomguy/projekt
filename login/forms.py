@@ -2,6 +2,7 @@ from django import forms
 from projekt.language import *
 from .models import Account
 from configparser import ConfigParser
+from django.core.exceptions import ValidationError
 from .validators import (
     MinLengthValidator,
     MaxLengthValidator,
@@ -143,5 +144,14 @@ def get_register_form(lang: Language, request=None):
             email       = cleaned.get("email")
             password    = cleaned.get("password")
             confirm     = cleaned.get("confirm")
+
+            if password != confirm:
+                code = "mismatch_error"
+                raise ValidationError(
+                    lang.sections["errors"][code],
+                    code=code
+                )
+
+            return cleaned
 
     return RegisterForm(request.POST if request else None)
