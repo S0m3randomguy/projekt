@@ -135,7 +135,9 @@ def get_register_form(lang: Language, request=None):
             }
 
         def clean(self):
-            cleaned = super().clean()
+            super(RegisterForm, self).clean()
+            cleaned = self.cleaned_data
+            
             name        = cleaned.get("name")
             username    = cleaned.get("username")
             email       = cleaned.get("email")

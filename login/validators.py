@@ -39,26 +39,28 @@ class MaxLengthValidator(Validator):
         )
 
 class CharsetValidator(Validator):
-    def __init__(self, lang: Language, name, *characters):
+    def __init__(self, lang: Language, name, params, *characters):
         super().__init__(
             lang, "charset_error",
             lambda value, obj: value not in "".join(obj.chars),
-            name=name, chars=characters
+            name=name, chars=characters,
+            params= ", ".join(params)
         )
 
 class ExtendedAsciiValidator(CharsetValidator):
     def __init__(self, lang: Language, name):
-        chars = "".join([chr(x) for x in range(40, 126)])
+        chars = [chr(x) for x in range(40, 126)]
         super().__init__(
             lang, name,
-            chars
+            *chars
         )
     
 class AlphanumericValidator(CharsetValidator):
     def __init__(self, lang: Language, name):
         super().__init__(
             lang, name,
-            string.ascii_letters + string.digits
+            string.ascii_letters,
+            string.digits
         )
 
 class RegexValidator(Validator):
