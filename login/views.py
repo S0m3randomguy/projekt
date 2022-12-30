@@ -24,8 +24,6 @@ def form_method(form_name, template):
         if request.method == "POST":
             if form.is_valid():
                 return HttpResponseRedirect("/test")
-            else:
-                print(form.errors.as_json())
 
         context = {
             f"{form_name}_form"    : form,

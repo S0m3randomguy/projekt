@@ -11,28 +11,29 @@
 
     "register":
     {
-        "register_title"            : "Register",
-        "full_name_placeholder"     : "Full name",
-        "username_placeholder"      : "Username",
-        "email_placeholder"         : "E-mail",
-        "password_placeholder"      : "Password",
-        "confirmation_placeholder"  : "Confirm password",
-        "terms_and_conditions"      : "I accept all terms and conditions",
-        "already_a_member"          : "Already a member?",
-        "log_in_now"                : "Log in now"
+        "register_title"       : "Register",
+        "name_placeholder"     : "Full name",
+        "username_placeholder" : "Username",
+        "email_placeholder"    : "E-mail",
+        "password_placeholder" : "Password",
+        "confirm_placeholder"  : "Confirm password",
+        "terms_and_conditions" : "I accept all terms and conditions",
+        "already_a_member"     : "Already a member?",
+        "log_in_now"           : "Log in now"
     },
 
     "other": {
         "charset_letters"       : "letters",
         "charset_digits"        : "digits",
-        "charset_underscore"    : "underscore"
+        "charset_underscore"    : "underscore",
+        "charset_ascii"         : "ascii characters"
     },
 
     "errors": {
         "min_length_error" : "'%(name)s' must be at least %(limit)s character(s) long.",
         "max_length_error" : "'%(name)s' cannot be over %(limit)s character(s) long.",
-        "charset_error"    : "'%(name)s' must consist of only %(params).",
-        "email_error"      : "'%(email) is not a valid e-mail address.'",
+        "charset_error"    : "'%(name)s' must consist of only %(chars)s.",
+        "email_error"      : "'%(email)s' is not a valid e-mail address.",
         "mismatch_error"   : "Passwords must match."
     }
 }

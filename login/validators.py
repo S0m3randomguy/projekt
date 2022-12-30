@@ -17,8 +17,15 @@ class Validator:
             message, code=code,
             params=kwargs
         )
+        self.cache = {}
+    
+    def reconstruct(self, key, method):
+        self.cache[key] = method
     
     def __call__(self, value):
+        for key, method in self.cache.items():
+            self.error.params[key] = method(value)
+
         if not self.condition(value, self):
             raise self.error
 
@@ -26,7 +33,7 @@ class MinLengthValidator(Validator):
     def __init__(self, lang: Language, name, limit):
         super().__init__(
             lang, "min_length_error",
-            lambda value, obj: value >= obj.limit,
+            lambda value, obj: len(value) >= obj.limit,
             name=name, limit=limit
         )
 
@@ -34,25 +41,26 @@ class MaxLengthValidator(Validator):
     def __init__(self, lang: Language, name, limit):
         super().__init__(
             lang, "max_length_error",
-            lambda value, obj: value < obj.limit,
+            lambda value, obj: len(value) <= obj.limit,
             name=name, limit=limit
         )
 
 class CharsetValidator(Validator):
-    def __init__(self, lang: Language, name, params, *characters):
+    def __init__(self, lang: Language, name, chars, *characters):
         super().__init__(
             lang, "charset_error",
-            lambda value, obj: value not in "".join(obj.chars),
-            name=name, chars=characters,
-            params= ", ".join(params)
+            lambda value, obj: not any([x not in "".join(obj.characters) for x in value]),
+            name=name, characters=characters,
+            chars= ", ".join(chars)
         )
 
 class ExtendedAsciiValidator(CharsetValidator):
     def __init__(self, lang: Language, name):
         chars = [chr(x) for x in range(40, 126)]
+        param = lang.sections["other"]["charset_ascii"]
         super().__init__(
             lang, name,
-            *chars
+            [param], *chars
         )
     
 class AlphanumericValidator(CharsetValidator):
@@ -73,11 +81,12 @@ class RegexValidator(Validator):
 
 class EmailValidator(RegexValidator):
     def __init__(self, lang: Language, name):
-        expression = r"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        expression = r"^[\w\-\.]+@([\w-]+\.)+[\w-]{2,4}$"
         super().__init__(
             lang, name,
             expression, "email_error"
         )
+        self.reconstruct("email", lambda value: value)
 
 class StrengthValidator(Validator):
     def __init__(self, lang: Language, name):
