@@ -24,7 +24,7 @@ MIN_USERNAME_LENGTH = config.getint(ACCOUNT_SECTION, "MIN_USERNAME_LENGTH")
 MAX_USERNAME_LENGTH = config.getint(ACCOUNT_SECTION, "MAX_USERNAME_LENGTH")
 
 MIN_PASSWORD_LENGTH = config.getint(ACCOUNT_SECTION, "MIN_PASSWORD_LENGTH")
-MAX_PASSWORD_LENGTH = config.getint(ACCOUNT_SECTION, "MIN_PASSWORD_LENGTH")
+MAX_PASSWORD_LENGTH = config.getint(ACCOUNT_SECTION, "MAX_PASSWORD_LENGTH")
 
 def get_login_form(lang: Language, request=None):
     SECTION_LOGIN        = lang.sections["login"]
@@ -68,12 +68,12 @@ def get_register_form(lang: Language, request=None):
     CHARSET              = string.ascii_letters + string.digits + "_"
 
     class RegisterForm(forms.ModelForm):
-        name = forms.CharField(max_length=MAX_NAME_LENGTH, required=True, validators=[
+        name = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, NAME_PLACEHOLDER, MAX_NAME_LENGTH),
             MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH),
             CharsetValidator(lang, NAME_PLACEHOLDER, PARAMS, CHARSET)
         ])
-        username = forms.CharField(max_length=MAX_USERNAME_LENGTH, required=True, validators=[
+        username = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, USERNAME_PLACEHOLDER, MAX_USERNAME_LENGTH),
             MinLengthValidator(lang, USERNAME_PLACEHOLDER, MIN_USERNAME_LENGTH),
             CharsetValidator(lang, USERNAME_PLACEHOLDER, PARAMS, CHARSET)
@@ -81,12 +81,12 @@ def get_register_form(lang: Language, request=None):
         email = forms.CharField(required=True, validators=[
             EmailValidator(lang, EMAIL_PLACEHOLDER)
         ])
-        password = forms.CharField(max_length=MAX_PASSWORD_LENGTH, required=True, validators=[
+        password = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, PASSWORD_PLACEHOLDER, MAX_PASSWORD_LENGTH),
             MinLengthValidator(lang, PASSWORD_PLACEHOLDER, MIN_PASSWORD_LENGTH),
             ExtendedAsciiValidator(lang, PASSWORD_PLACEHOLDER)
         ])
-        confirm = forms.CharField(max_length=MAX_PASSWORD_LENGTH, required=True, validators=[
+        confirm = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, CONFIRM_PLACEHOLDER, MAX_PASSWORD_LENGTH),
             MinLengthValidator(lang, CONFIRM_PLACEHOLDER, MIN_PASSWORD_LENGTH),
             ExtendedAsciiValidator(lang, CONFIRM_PLACEHOLDER)
@@ -124,6 +124,13 @@ def get_register_form(lang: Language, request=None):
         def clean(self):
             super(RegisterForm, self).clean()
             cleaned = self.cleaned_data
+
+            if cleaned["password"] != cleaned["confirm"]:
+                code = "mismatch_error"
+                raise ValidationError(
+                    lang.sections["errors"][code],
+                    code=code
+                )
             return cleaned
 
     return RegisterForm(request.POST if request else None)
