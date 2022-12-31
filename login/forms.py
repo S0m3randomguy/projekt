@@ -71,7 +71,6 @@ def get_register_form(lang: Language, request=None):
         name = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, NAME_PLACEHOLDER, MAX_NAME_LENGTH),
             MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH),
-            CharsetValidator(lang, NAME_PLACEHOLDER, PARAMS, CHARSET)
         ])
         username = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, USERNAME_PLACEHOLDER, MAX_USERNAME_LENGTH),
