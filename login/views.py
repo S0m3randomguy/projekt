@@ -6,43 +6,51 @@ import os
 
 LOGIN_FILE      = "login/main.html"
 REGISTER_FILE   = "register/main.html"
-GET_FORM = {
-    "login"     : get_login_form,
-    "register"  : get_register_form
-}
 
-def form_method(form_name, template):
-    def method(request):
-        lang = request.GET.get("lang", None)
-        language = Language(verify_language(lang) or "en-US")
+def process_login(form: forms.Form):
+    # login
+    return HttpResponseRedirect("/")
 
-        form_method = GET_FORM.get(form_name, None)
-        if form_method is None:
-            return HttpResponseRedirect("/")
-        form = form_method(language, request)
-        
-        if request.method == "POST":
-            if form.is_valid():
-                form.save(commit=True)
-                return HttpResponseRedirect("/")
+def process_register(form: forms.ModelForm):
+    form.save(commit=True)
+    return HttpResponseRedirect("/")
 
-        context = {
-            f"{form_name}_form"    : form,
-            "language"             : language
-        }
-        return render(request or None, template, context)
-    return method
+def form_method(request, method, process, file):
+    lang = request.GET.get("lang", None)
+    language = Language(verify_language(lang) or "en-US")
+    form = method(language, request)
+    
+    if request.method == "POST":
+        if form.is_valid():
+            return process(form)
+
+    context = {
+        "form"     : form,
+        "language" : language
+    }
+    return render(request or None, file, context)
+
 
 def home(request):
     return HttpResponseRedirect("/login")
 
 def login(request):
-    method = form_method("login", LOGIN_FILE)
-    return method(request)
+    result = form_method(
+        request,
+        get_login_form,
+        process_login,
+        LOGIN_FILE
+    )
+    return result
 
 def register(request):
-    method = form_method("register", REGISTER_FILE)
-    return method(request)
+    result = form_method(
+        request,
+        get_register_form,
+        process_register,
+        REGISTER_FILE
+    )
+    return result
 
 def verify_language(lang: str):
     languages = [name for name in os.listdir("assets/languages")]

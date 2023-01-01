@@ -24,24 +24,24 @@
                 <form action="/register/" method="post">
                     {% csrf_token %}
                     <div class="input-field">
-                        {{ register_form.name }}
+                        {{ form.name }}
                         <i class="ri-user-line"></i>
                     </div>
                     <div class="input-field">
-                        {{ register_form.username }}
+                        {{ form.username }}
                         <i class="ri-account-circle-line"></i>
                     </div>
                     <div class="input-field">
-                        {{ register_form.email }}
+                        {{ form.email }}
                         <i class="ri-mail-line"></i>
                     </div>
                     <div class="input-field">
-                        {{ register_form.password }}
+                        {{ form.password }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>
                     </div>
                     <div class="input-field">
-                        {{ register_form.confirm }}
+                        {{ form.confirm }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>
                     </div>
@@ -65,7 +65,7 @@
         </div>
     </div>
     <div class="languages">
-        <a href="/login?lang=en-US" class="us">
+        <a href="?lang=en-US" class="us">
             <img src="{% static 'images/us-flag.png' %}" id="american">
             {% if language.lang == "en-US" %}
                 <span class="tooltip" id="eng">{{ language.head.native_name }}</span>
@@ -73,7 +73,7 @@
                 <span class="tooltip" id="eng">English</span>
             {% endif %}
         </a>
-        <a href="/login?lang=hr" class="cr">
+        <a href="?lang=hr" class="cr">
             <img src="{% static 'images/croatian-flag.png' %}" id="croatian">
             {% if language.lang == "hr" %}
                 <span class="tooltip" id="cro">{{ language.head.native_name }}</span>
