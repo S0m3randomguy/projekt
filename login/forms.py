@@ -33,8 +33,8 @@ def get_login_form(lang: Language, request=None):
     PASSWORD_PLACEHOLDER = SECTION_LOGIN["password_placeholder"]
 
     class LoginForm(forms.Form):
-        username = forms.CharField(max_length=100, required=True)
-        password = forms.CharField(max_length=100, required=True)
+        username = forms.CharField(required=True)
+        password = forms.CharField(required=True)
 
         username.widget = forms.TextInput(attrs={
             "type"          : "text",
@@ -47,6 +47,20 @@ def get_login_form(lang: Language, request=None):
             "placeholder"   : PASSWORD_PLACEHOLDER,
             "id"            : "password_field_login"
         })
+
+        def clean(self):
+            super(LoginForm, self).clean()
+            cleaned: dict = self.cleaned_data
+            data = Account.objects
+
+            credentials = data.filter(**cleaned).values()
+            if not credentials:
+                code = "invalid_credentials"
+                raise ValidationError(
+                    lang.sections["errors"][code],
+                    code=code
+                )
+            return cleaned
     
     return LoginForm(request.POST if request else None)
 
