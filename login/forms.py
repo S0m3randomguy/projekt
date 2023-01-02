@@ -27,10 +27,9 @@ MIN_PASSWORD_LENGTH = config.getint(ACCOUNT_SECTION, "MIN_PASSWORD_LENGTH")
 MAX_PASSWORD_LENGTH = config.getint(ACCOUNT_SECTION, "MAX_PASSWORD_LENGTH")
 
 def get_login_form(lang: Language, request=None):
-    SECTION_LOGIN        = lang.sections["login"]
-
-    USERNAME_PLACEHOLDER = SECTION_LOGIN["username_placeholder"]
-    PASSWORD_PLACEHOLDER = SECTION_LOGIN["password_placeholder"]
+    t = lang.translate
+    USERNAME_PLACEHOLDER = t("login.username_placeholder")
+    PASSWORD_PLACEHOLDER = t("login.password_placeholder")
 
     class LoginForm(forms.Form):
         username = forms.CharField(required=True)
@@ -65,26 +64,23 @@ def get_login_form(lang: Language, request=None):
     return LoginForm(request.POST if request else None)
 
 def get_register_form(lang: Language, request=None):
-    SECTION_REGISTER     = lang.sections["register"]
+    t = lang.translate
+    NAME_PLACEHOLDER     = t("register.name_placeholder")
+    USERNAME_PLACEHOLDER = t("register.username_placeholder")
+    EMAIL_PLACEHOLDER    = t("register.email_placeholder")
+    PASSWORD_PLACEHOLDER = t("register.password_placeholder")
+    CONFIRM_PLACEHOLDER  = t("register.confirm_placeholder")
 
-    NAME_PLACEHOLDER     = SECTION_REGISTER["name_placeholder"]
-    USERNAME_PLACEHOLDER = SECTION_REGISTER["username_placeholder"]
-    EMAIL_PLACEHOLDER    = SECTION_REGISTER["email_placeholder"]
-    PASSWORD_PLACEHOLDER = SECTION_REGISTER["password_placeholder"]
-    CONFIRM_PLACEHOLDER  = SECTION_REGISTER["confirm_placeholder"]
-
-    SECTION_OTHER        = lang.sections["other"]
-
-    CHARSET_LETTERS      = SECTION_OTHER["charset_letters"]
-    CHARSET_DIGITS       = SECTION_OTHER["charset_digits"]
-    CHARSET_UNDERSCORE   = SECTION_OTHER["charset_underscore"]
+    CHARSET_LETTERS      = t("other.charset_letters")
+    CHARSET_DIGITS       = t("other.charset_digits")
+    CHARSET_UNDERSCORE   = t("other.charset_underscore")
     PARAMS               = [CHARSET_LETTERS, CHARSET_DIGITS, CHARSET_UNDERSCORE]
     CHARSET              = string.ascii_letters + string.digits + "_"
 
     class RegisterForm(forms.ModelForm):
         name = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, NAME_PLACEHOLDER, MAX_NAME_LENGTH),
-            MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH),
+            MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH)
         ])
         username = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, USERNAME_PLACEHOLDER, MAX_USERNAME_LENGTH),
@@ -138,7 +134,7 @@ def get_register_form(lang: Language, request=None):
             super(RegisterForm, self).clean()
             cleaned = self.cleaned_data
 
-            if cleaned["password"] != cleaned["confirm"]:
+            if cleaned.get("password", None) != cleaned.get("confirm", None):
                 code = "mismatch_error"
                 raise ValidationError(
                     lang.sections["errors"][code],
