@@ -8,7 +8,8 @@ from .validators import (
     MaxLengthValidator,
     CharsetValidator,
     EmailValidator,
-    ExtendedAsciiValidator
+    ExtendedAsciiValidator,
+    DatabaseValidator
 )
 import string
 
@@ -85,10 +86,12 @@ def get_register_form(lang: Language, request=None):
         username = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, USERNAME_PLACEHOLDER, MAX_USERNAME_LENGTH),
             MinLengthValidator(lang, USERNAME_PLACEHOLDER, MIN_USERNAME_LENGTH),
-            CharsetValidator(lang, USERNAME_PLACEHOLDER, PARAMS, CHARSET)
+            CharsetValidator(lang, USERNAME_PLACEHOLDER, PARAMS, CHARSET),
+            DatabaseValidator(lang, USERNAME_PLACEHOLDER, Account, "username")
         ])
         email = forms.CharField(required=True, validators=[
-            EmailValidator(lang, EMAIL_PLACEHOLDER)
+            EmailValidator(lang, EMAIL_PLACEHOLDER),
+            DatabaseValidator(lang, EMAIL_PLACEHOLDER, Account, "email")
         ])
         password = forms.CharField(required=True, validators=[
             MaxLengthValidator(lang, PASSWORD_PLACEHOLDER, MAX_PASSWORD_LENGTH),

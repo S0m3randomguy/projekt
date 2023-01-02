@@ -23,13 +23,13 @@ def form_method(request, method, process, file):
     if request.method == "POST":
         if form.is_valid():
             return process(form)
+        else: print(form.errors.as_json())
 
     context = {
         "form"     : form,
         "language" : language
     }
     return render(request or None, file, context)
-
 
 def home(request):
     return HttpResponseRedirect("/login")

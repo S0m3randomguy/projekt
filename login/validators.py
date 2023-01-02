@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from projekt.language import Language
+from django.db import models
 import string
 import re
 
@@ -95,4 +96,15 @@ class StrengthValidator(Validator):
             lang, "strength_error",
             lambda value, obj: any([x in obj.characters for x in value]),
             name=name, characters=characters
+        )
+
+class DatabaseValidator(Validator):
+    def __init__(self, lang: Language, name, model: models.Model, filter, code=None):
+        data = model.objects
+        super().__init__(
+            lang, code or "db_exists_error",
+            lambda value, obj: not obj.data.filter(**{
+                obj.filter: value
+            }),
+            name=name, data=data, filter=filter
         )
