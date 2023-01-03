@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+
+  <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+   
+     <link rel="stylesheet" href="{% static 'css/home/styles.css' %}">
+   
+     <title>Home</title>
+   </head>
+
+<body>
+
+	<!-- NAVIGATION BAR -->
+		<nav>
+      
+      <div class="navigation-left">
+
+      <!-- Logo -->
+        <div class="logo">
+          <a href="#">LOGO</a>
+        </div> 
+  
+        <!-- Navigation bar items -->
+        <div class="navbar-items">
+          <a href="#">
+            Home
+          </a>
+  
+          <div class="dropdown">
+  
+            <button class="drop-btn">Transport
+              <i class="ri-arrow-up-s-line arrow"></i>
+            </button>
+  
+            <div class="dropdown-content">
+              <a href="#">Bicycles</a>
+              <a href="#">Romobiles</a>
+              <a href="#">Rollerskates</a>
+              <a href="#">Skateboards</a>
+            </div>
+  
+          </div> 
+          
+          <div class="tablet-search">
+            <a>Search</a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    <!-- Search bar -->
+			<div class="input-box">
+				<input type="text" placeholder="Search...">
+        <div class="search-box">
+          <span class="box">
+            <i class="ri-search-line search-icon"></i>
+        </div>
+			</div>
+
+    <!-- Sign up button -->
+    <div class="navigation-right">
+      <button class="sign-up">Sign up</button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+		</nav>
+
+    <div class="mobile-menu">
+        <!-- Mobile menu items -->
+        <ul>
+
+          <li>
+            <a>Home</a>
+          </li>
+
+          <!-- Dropdown (sections) -->
+          <li>
+            <a class="drop-btn">Transport<i class="ri-arrow-up-s-line arrow"></i>
+            </a>
+          </li>
+
+          <li>
+          <div class="mobile-dropdown-content">
+            <ul>
+              <li><a href="#">Bicycles</a></li>
+              <li><a href="#">Romobiles</a></li>
+              <li><a href="#">Rollerskates</a></li>
+              <li><a href="#">Skateboards</a></li>
+            </ul>
+          </div>
+          </li>
+      
+          <!-- Search bar -->
+          <li>
+            <div class="mobile-input-box">
+              <input type="text" placeholder="Search...">
+              <div class="search-box">
+                <span class="box">
+                  <i class="ri-search-line search-icon"></i>
+              </div>
+            </div>
+            <a class="mobile-search-button">Search</a>
+          </li>
+      
+          <!-- Sign up button -->
+          <li>
+            <a class="sign-up-mobile">Sign up</a>
+          </li>
+
+        </ul>
+
+    </div>
+
+  
+  <!-- HOMEPAGE CONTENT -->
+  <section class="content">
+    
+    <div class="recent-posts">
+      <a>Recent posts</a>
+    </div>
+
+    <div class="all-posts">
+      <a>All posts</a>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->  
+  <footer class="footer">
+
+      <div class="row">
+
+        <div class="footer-col">
+          <h4>Company</h4>
+
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Our services</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+          <h4>Help & FAQ</h4>
+
+          <ul>
+            <li><a href="#">How do I Sign up?</a></li>
+            <li><a href="#">Where do I log in?</a></li>
+            <li><a href="#">How do I post a question?</a></li>
+            <li><a href="#">All FAQ</a></li>
+          </ul>
+
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="copyright">
+          <a>© Copyright</a>
+        </div>
+      </div>
+
+  </footer>
+
+<script src="{% static 'css/home/script.js' %}"></script>
+
+</body>
+</html>
