@@ -20,5 +20,17 @@
         "terms_and_conditions"      : "Prihvaćam sve odredbe i uvjete",
         "already_a_member"          : "Imaš račun?",
         "log_in_now"                : "Prijavi se"
+    },
+
+    "other": {
+        "charset_letters"       : "slova",
+        "charset_digits"        : "znamenki",
+        "charset_underscore"    : "donje crte"
+    },
+
+    "errors": {
+        "min_length_error" : "Polje '%(name)s' mora biti barem %(limit)s znak(ova) dugačko.",
+        "max_length_error" : "Polje '%(name)s' ne može biti preko %(limit)s znak(ova) dugačko.",
+        "charset_error"    : "Polje '%(name)s' se smije sastojati od %(charset)."
     }
 }

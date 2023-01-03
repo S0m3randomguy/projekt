@@ -16,35 +16,49 @@
 
 <body id="bg" style="background-image: url('{% static 'images/mountains.jpg' %}');">
     <div class="dim"></div>
-    <div class="container">
+    <div class="container active">
         <div class="forms">
-            <div class="form login">
-                <span class="title">{{ language.sections.login.login_title }}</span>
+            <div class="form signup">
+                <span class="title">{{ language.sections.register.register_title }}</span>
 
-                <form action="/login/" method="post">
+                <form action="/register/" method="post">
                     {% csrf_token %}
                     <div class="input-field">
-                        {{ form.username }}
+                        {{ form.name }}
                         <i class="ri-user-line"></i>
                     </div>
                     <div class="input-field">
-                        {{ form.password }}
+                        {{ form.username }}
+                        <i class="ri-account-circle-line"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.email }}
                         <i class="ri-mail-line"></i>
-                        <i class="ri-eye-off-line show-hide-pw" id="password_toggle_login"></i>
                     </div>
-
+                    <div class="input-field">
+                        {{ form.password }}
+                        <i class="ri-lock-line"></i>
+                        <i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>
+                    </div>
+                    <div class="input-field">
+                        {{ form.confirm }}
+                        <i class="ri-lock-line"></i>
+                        <i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>
+                    </div>
                     <div class="checkbox-text">
-                        <a href="#" class="text">{{ language.sections.login.forgot_password }}</a>
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon" required>
+                            <label for="termCon" class="text">{{ language.sections.register.terms_and_conditions }}</label>
+                        </div>
                     </div>
-
                     <div class="input-field button">
-                        <input type="submit" value="{{ language.sections.login.login_title }}">
+                        <input type="submit" value="Sign up">
                     </div>
                 </form>
 
                 <div class="login-signup">
-                    <span class="text">{{ language.sections.login.not_a_member }}
-                        <a href="/register" class="text signup-link">{{ language.sections.login.sign_up_now }}</a>
+                    <span class="text">{{ language.sections.register.already_a_member }}
+                        <a href="/login" class="text login-link">{{ language.sections.register.log_in_now }}</a>
                     </span>
                 </div>
             </div>
