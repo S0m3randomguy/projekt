@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import *
 from projekt.language import *
 import os
@@ -7,11 +7,12 @@ import os
 LOGIN_FILE      = "login/main.html"
 REGISTER_FILE   = "register/main.html"
 
-def process_login(form: forms.Form):
-    # login
-    return HttpResponseRedirect("/")
+def process_login(request, form: forms.Form):
+    response = HttpResponseRedirect("/")
+    response.set_cookie("username", form.cleaned_data["username"])
+    return response
 
-def process_register(form: forms.ModelForm):
+def process_register(request, form: forms.ModelForm):
     form.save(commit=True)
     return HttpResponseRedirect("/")
 
@@ -19,20 +20,20 @@ def form_method(request, method, process, file):
     lang = request.GET.get("lang", None)
     language = Language(verify_language(lang) or "en-US")
     form = method(language, request)
-    
-    if request.method == "POST":
-        if form.is_valid():
-            return process(form)
-        else: print(form.errors.as_json())
 
     context = {
         "form"     : form,
         "language" : language
     }
-    return render(request or None, file, context)
 
-def home(request):
-    return HttpResponseRedirect("/login")
+    response = render(request or None, file, context)
+
+    if request.method == "POST":
+        if form.is_valid():
+            response =  process(request, form)
+        else: print(form.errors.as_json())
+
+    return response
 
 def login(request):
     result = form_method(
