@@ -262,19 +262,32 @@ main{
   padding: 2rem;
 }
 
-.recent-posts a {
+main a {
   color: #fff;
+  display: flex;
 }
 
-.all-posts a {
-  color: #fff;
+main .title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+main .response {
+  margin-bottom: 20px;
+}
+
+main .recent-posts .response, main .all-posts .response {
+  color: #7c7c7c;
 }
 
 
 /* FOOTER */
-.container{
-	max-width: 1170px;
-	margin: auto;
+footer{
+  background-color: #1f1f1f;
+  padding: 6rem 5rem 5rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .row{
@@ -284,14 +297,6 @@ main{
 
 ul{
 	list-style: none;
-}
-
-footer{
-  background-color: #1f1f1f;
-  padding: 6rem 5rem 5rem 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .footer-col{
