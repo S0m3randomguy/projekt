@@ -39,7 +39,7 @@ nav {
   display: flex;
   align-items: center;
   text-decoration: none;
-  background-image: linear-gradient(to right, #ff771c , #ff9955);
+  background-image: linear-gradient(to top, #ff771c , #ff9955);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -50,7 +50,7 @@ nav {
 }
 
 .logo:hover {
-  background-image: linear-gradient(to right, #616161, #474747);
+  background-image: linear-gradient(to top, #616161, #474747);
 }
 
 /* Navbar items */
@@ -311,7 +311,7 @@ footer{
 	position: absolute;
 	left:0;
 	bottom: -10px;
-  background-image: linear-gradient(to right, #ff6004 , #ff822e);
+  background-image: linear-gradient(to top, #ff6004 , #ff822e);
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
