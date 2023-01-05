@@ -29,15 +29,24 @@
                         {{ form.username }}
                         <i class="ri-user-line"></i>
                     </div>
-                    <div class="error">{{ language.sections.login.login_title }}</div>
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
 
                     <div class="input-field">
                         {{ form.password }}
                         <i class="ri-mail-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="password_toggle_login"></i>
                     </div>
-                    <div class="error">{{ language.sections.login.login_title }}</div>
-
+                    
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    
                     <div class="checkbox-text">
                         <a href="#" class="text">{{ language.sections.login.forgot_password }}</a>
                     </div>
