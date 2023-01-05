@@ -28,44 +28,65 @@
                     <div class="input-field">
                         {{ form.name }}
                         <i class="ri-user-line"></i>
+                        {% if form.name.errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.name.errors.0 }}</div>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% if form.name.errors %}
-                        <div class="error">{{ form.name.errors.0 }}</div>
-                    {% endif %}
                     <div class="input-field">
                         {{ form.username }}
                         <i class="ri-account-circle-line"></i>
+                        {% if form.username.errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.username.errors.0 }}</div>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% if form.username.errors %}
-                        <div class="error">{{ form.username.errors.0 }}</div>
-                    {% endif %}
                     <div class="input-field">
                         {{ form.email }}
                         <i class="ri-mail-line"></i>
+                        {% if form.email.errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.email.errors.0 }}</div>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% if form.email.errors %}
-                        <div class="error">{{ form.email.errors.0 }}</div>
-                    {% endif %}
                     <div class="input-field">
                         {{ form.password }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>
+                        {% if form.password.errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.password.errors.0 }}</div>
+                        </div>
+                        {% elif form.non_field_errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.non_field_errors.0 }}</div>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% if form.password.errors %}
-                        <div class="error">{{ form.password.errors.0 }}</div>
-                    {% elif form.non_field_errors %}
-                        <div class="error">{{ form.non_field_errors.0 }}</div>
-                    {% endif %}
                     <div class="input-field">
                         {{ form.confirm }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>
+                        {% if form.confirm.errors %}
+                        <div class="error">
+                            <div class="error-icon">!</div>
+                            <div class="error-text">{{ form.confirm.errors.0 }}</div>
+                            </div>
+                        {% elif form.non_field_errors %}
+                            <div class="error">
+                                <div class="error-icon">!</div>
+                                <div class="error-text">{{ form.non_field_errors.0 }}</div>
+                            </div>
+                        {% endif %}
                     </div>
-                    {% if form.confirm.errors %}
-                        <div class="error">{{ form.confirm.errors.0 }}</div>
-                    {% elif form.non_field_errors %}
-                        <div class="error">{{ form.non_field_errors.0 }}</div>
-                    {% endif %}
                     <div class="checkbox-text">
                         <div class="checkbox-content">
                             <input type="checkbox" id="termCon" required>

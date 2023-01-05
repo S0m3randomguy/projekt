@@ -28,24 +28,29 @@
                     <div class="input-field">
                         {{ form.username }}
                         <i class="ri-user-line"></i>
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                                <div class="error">
+                                    <div class="error-icon">!</div>
+                                    <div class="error-text">{{ error }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
-                    {% if form.non_field_errors %}
-                        {% for error in form.non_field_errors %}
-                            <div class="error">{{ error }}</div>
-                        {% endfor %}
-                    {% endif %}
 
                     <div class="input-field">
                         {{ form.password }}
                         <i class="ri-mail-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="password_toggle_login"></i>
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                                <div class="error">
+                                    <div class="error-icon">!</div>
+                                    <div class="error-text">{{ error }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
-                    
-                    {% if form.non_field_errors %}
-                        {% for error in form.non_field_errors %}
-                            <div class="error">{{ error }}</div>
-                        {% endfor %}
-                    {% endif %}
                     
                     <div class="checkbox-text">
                         <a href="#" class="text">{{ language.sections.login.forgot_password }}</a>
