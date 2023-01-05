@@ -137,6 +137,12 @@ body{
     padding: 10px;
 }
 
+/* error */
+.error {
+    color: #fa1d1d;
+    margin-top: 10px;
+}
+
 /* checkbox */
 .form .checkbox-text{
     display: flex;

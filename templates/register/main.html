@@ -13,7 +13,7 @@
     
     <link rel="icon" href="{% static 'images/wrench.ico' %}" type="image/x-icon"/>
     <title>FixxIt - Register</title>
-    
+
 </head>
 
 <body id="bg" style="background-image: url('{% static 'images/mountains.jpg' %}');">
@@ -29,24 +29,34 @@
                         {{ form.name }}
                         <i class="ri-user-line"></i>
                     </div>
+                    <div class="error">{{ language.sections.login.login_title }}</div>
+
                     <div class="input-field">
                         {{ form.username }}
                         <i class="ri-account-circle-line"></i>
                     </div>
+                    <div class="error">{{ language.sections.login.login_title }}</div>
+
                     <div class="input-field">
                         {{ form.email }}
                         <i class="ri-mail-line"></i>
                     </div>
+                    <div class="error">{{ language.sections.login.login_title }}</div>
+
                     <div class="input-field">
                         {{ form.password }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>
                     </div>
+                    <div class="error">{{ language.sections.login.login_title }}</div>
+
                     <div class="input-field">
                         {{ form.confirm }}
                         <i class="ri-lock-line"></i>
                         <i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>
                     </div>
+                    <div class="error">{{ language.sections.login.login_title }}</div>
+                    
                     <div class="checkbox-text">
                         <div class="checkbox-content">
                             <input type="checkbox" id="termCon" required>
