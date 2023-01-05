@@ -30,11 +30,12 @@
     },
 
     "errors": {
-        "min_length_error" : "%(name)s must be at least %(limit)s character(s) long.",
-        "max_length_error" : "%(name)s cannot be over %(limit)s character(s) long.",
-        "charset_error"    : "%(name)s must consist of only %(chars)s.",
-        "email_error"      : "%(email)s is not a valid e-mail address.",
-        "mismatch_error"   : "Passwords must match.",
-        "db_exists_error"  : "%(name)s is already in use."
+        "min_length_error"  : "%(name)s must be at least %(limit)s character(s) long.",
+        "max_length_error"  : "%(name)s cannot be over %(limit)s character(s) long.",
+        "charset_error"     : "%(name)s must consist of only %(chars)s.",
+        "email_error"       : "%(email)s is not a valid e-mail address.",
+        "mismatch_error"    : "Passwords must match.",
+        "db_exists_error"   : "%(name)s is already in use.",
+        "credentials_error" : "Invalid credentials."
     }
 }

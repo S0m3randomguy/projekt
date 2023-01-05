@@ -55,7 +55,7 @@ def get_login_form(lang: Language, request=None):
 
             credentials = data.filter(**cleaned).values()
             if not credentials:
-                code = "invalid_credentials"
+                code = "credentials_error"
                 raise ValidationError(
                     lang.sections["errors"][code],
                     code=code
