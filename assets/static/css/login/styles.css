@@ -46,11 +46,10 @@ body{
     display: flex;
     align-items: center;
     height: 440px;
-    width: 200%;
 }
 
 .container .form{
-    width: 50%;
+    width: 100%;
     padding: 30px;
     background: radial-gradient(
         40% 100% at 50% top,
@@ -252,6 +251,7 @@ body{
     color: #6e6e6e;
     font-size: 17px;
     font-weight: 600;
+    padding: 0 45px;
     letter-spacing: 1px;
     border-radius: 4px;
     background-color: #494949;
@@ -280,17 +280,20 @@ body{
     margin: 20px;
     padding: 0.2rem;
     width: 272.5px;
+    height: 85.23px;
     right: 0px;
     bottom: 0px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0px 10px #0f0f0f;
 }
 
 #american {
     position: relative;
-    margin: 8px 0px 8px 8px;
+    margin: 9.5px 7px;
     width: 42%;
-    margin-left: 12px;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
     transition: transform .1s;
@@ -301,11 +304,11 @@ body{
 }
 
 #croatian {
-    position: absolute;
-    right: 5px;
-    bottom: 8px;
-    margin: 0px 8px 8px 8px;
+    position: relative;
+    margin: 9.5px 7px;
+    right: 0px;
     width: 42%;
+    height: 74.65%;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
     transition: transform .1s;
@@ -370,3 +373,19 @@ body{
     opacity: 1;
     transform: translate(0, -30%);
   }
+
+/* mobile languages */
+@media(max-width:1095px) {
+    .languages {
+        width: 220px;
+        height: 70px;
+    }
+
+    #american {
+        margin: 6px 5px;
+    }
+
+    #croatian {
+        margin: 6px 5px; 
+    }
+}
