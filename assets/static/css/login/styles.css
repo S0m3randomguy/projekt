@@ -104,7 +104,7 @@ body{
         #616161, #353535
         );
     box-shadow: 0 3px 15px #1f1f1f;
-    padding: 0 45px;
+    padding: 0 60px 0 45px;
     border: none;
     outline: none;
     font-size: 16px;
@@ -205,6 +205,10 @@ body{
     margin-left: 40px;
 }
 
+.input-field:nth-child(5) input, .input-field:nth-child(6) input {
+    padding: 0 95px 0 45px;
+}
+
 /* checkbox */
 .form .checkbox-text{
     display: flex;
@@ -278,9 +282,6 @@ body{
     width: 272.5px;
     right: 0px;
     bottom: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0px 10px #0f0f0f;
 }
@@ -289,6 +290,7 @@ body{
     position: relative;
     margin: 8px 0px 8px 8px;
     width: 42%;
+    margin-left: 12px;
     box-shadow: 0 5px 10px #0f0f0f;
     border-radius: 5px;
     transition: transform .1s;
@@ -340,7 +342,7 @@ body{
 
 #eng {
     position: absolute;
-    right: 120px;
+    right: 118px;
 }
 
 #cro {
@@ -359,12 +361,12 @@ body{
     border-color: #464646 transparent transparent transparent;
 }
 
-.us:hover #eng {
+#american:hover ~ #eng {
     opacity: 1;
     transform: translate(0, -30%);
   }
 
-.cr:hover #cro {
+#croatian:hover ~ #cro {
     opacity: 1;
     transform: translate(0, -30%);
   }
