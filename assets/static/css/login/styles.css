@@ -364,12 +364,7 @@ body{
     border-color: #464646 transparent transparent transparent;
 }
 
-#american:hover ~ #eng {
-    opacity: 1;
-    transform: translate(0, -30%);
-  }
-
-#croatian:hover ~ #cro {
+#american:hover ~ #eng, #croatian:hover ~ #cro {
     opacity: 1;
     transform: translate(0, -30%);
   }
@@ -377,8 +372,11 @@ body{
 /* mobile languages */
 @media(max-width:1095px) {
     .languages {
+        position: relative;
         width: 220px;
         height: 70px;
+        margin-bottom: 20px;
+        margin-top: 30px;
     }
 
     #american {
@@ -387,5 +385,32 @@ body{
 
     #croatian {
         margin: 6px 5px; 
+    }
+
+    #american:hover ~ #eng, #croatian:hover ~ #cro {
+        opacity: 0;
+      }
+
+    body {
+        width: 100%;
+        height: 120%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dim {
+        height: 120%;
+        width: 110%;
+    }
+
+    .container {
+        width: 100%;
+        margin-top: 15vh;
+    }
+
+    .container.active {
+        width: 100%;
+        margin-top: 30px;
     }
 }

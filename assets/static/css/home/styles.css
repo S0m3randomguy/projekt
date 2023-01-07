@@ -205,7 +205,7 @@ input{
   margin-left: 3px;
 }
 
-/* Sign up button */
+/* Log in button */
 .log-in {
   color: #fff;
   font-size: 15px;
@@ -400,7 +400,7 @@ ul{
   background-color: #181818;
   display: none;
 }
-.mobile-menu .mobile-dropdown-content ul li a {
+.mobile-menu ul li a {
   text-decoration: none;
   color: #fff;
 }
@@ -428,7 +428,7 @@ ul{
   top: -282px;
 }
 
-/* MOBILE SEARCH BAR */
+/* Mobile search bar */
 .mobile-input-box {
   display: none;
   position: relative;
