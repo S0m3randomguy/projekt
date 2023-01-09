@@ -156,7 +156,8 @@ body{
     opacity: 0;
     position: absolute;
     bottom: 100%;
-    right: 3%;
+    right: 0%;
+    width: 200px;
     background-color: #dd1d1d;
     color: #fff;
     padding: 8px;
@@ -164,13 +165,14 @@ body{
     margin-top: 5px;
     font-size: 14px;
     transition: all .1s ease;
+    box-shadow: 0 0px 5px #353535;
 }
 
 .error-text::after {
     content: "";
     position: absolute;
     top: 100%;
-    left: 50%;
+    right: 11.5%;
     margin-left: 48px;
     border-width: 8px;
     border-style: solid;
@@ -189,7 +191,7 @@ body{
 
 .input-field:nth-child(5) .error-text,
 .input-field:nth-child(6) .error-text {
-    right: 11%;
+    right: 8%;
 }
 
 .container .form.login .input-field:nth-child(3) .error-icon {
