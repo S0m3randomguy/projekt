@@ -194,12 +194,20 @@ body{
     right: 8%;
 }
 
+.container .form.login .error-text {
+    width: auto;
+}
+
+.container .form.login .input-field:nth-child(2) .error-text {
+    right: 1.5%;
+}
+
 .container .form.login .input-field:nth-child(3) .error-icon {
     right: 12%;
 }
 
 .container .form.login .input-field:nth-child(3) .error-text {
-    right: 11%;
+    right: 9.8%;
 }
 
 .container .form.login .error-text::after {
