@@ -86,33 +86,33 @@ def get_register_form(lang: Language, request=None):
 
     class RegisterForm(forms.ModelForm):
         name = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
+            RequiredValidator(lang, NAME_PLACEHOLDER),
             MaxLengthValidator(lang, NAME_PLACEHOLDER, MAX_NAME_LENGTH),
-            MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH),
-            RequiredValidator(lang, NAME_PLACEHOLDER)
+            MinLengthValidator(lang, NAME_PLACEHOLDER, MIN_NAME_LENGTH)
         ])
         username = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
+            RequiredValidator(lang, USERNAME_PLACEHOLDER),
             MaxLengthValidator(lang, USERNAME_PLACEHOLDER, MAX_USERNAME_LENGTH),
             MinLengthValidator(lang, USERNAME_PLACEHOLDER, MIN_USERNAME_LENGTH),
             CharsetValidator(lang, USERNAME_PLACEHOLDER, PARAMS, CHARSET),
-            DatabaseValidator(lang, USERNAME_PLACEHOLDER, Account, "username"),
-            RequiredValidator(lang, USERNAME_PLACEHOLDER)
+            DatabaseValidator(lang, USERNAME_PLACEHOLDER, Account, "username")
         ])
         email = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
+            RequiredValidator(lang, EMAIL_PLACEHOLDER),
             EmailValidator(lang, EMAIL_PLACEHOLDER),
-            DatabaseValidator(lang, EMAIL_PLACEHOLDER, Account, "email"),
-            RequiredValidator(lang, EMAIL_PLACEHOLDER)
+            DatabaseValidator(lang, EMAIL_PLACEHOLDER, Account, "email")
         ])
         password = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
+            RequiredValidator(lang, PASSWORD_PLACEHOLDER),
             MaxLengthValidator(lang, PASSWORD_PLACEHOLDER, MAX_PASSWORD_LENGTH),
             MinLengthValidator(lang, PASSWORD_PLACEHOLDER, MIN_PASSWORD_LENGTH),
-            ExtendedAsciiValidator(lang, PASSWORD_PLACEHOLDER),
-            RequiredValidator(lang, PASSWORD_PLACEHOLDER)
+            ExtendedAsciiValidator(lang, PASSWORD_PLACEHOLDER)
         ])
         confirm = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
+            RequiredValidator(lang, CONFIRM_PLACEHOLDER),
             MaxLengthValidator(lang, CONFIRM_PLACEHOLDER, MAX_PASSWORD_LENGTH),
             MinLengthValidator(lang, CONFIRM_PLACEHOLDER, MIN_PASSWORD_LENGTH),
-            ExtendedAsciiValidator(lang, CONFIRM_PLACEHOLDER),
-            RequiredValidator(lang, CONFIRM_PLACEHOLDER)
+            ExtendedAsciiValidator(lang, CONFIRM_PLACEHOLDER)
         ])
         
         name.widget = forms.TextInput(attrs={

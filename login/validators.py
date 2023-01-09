@@ -28,9 +28,9 @@ class Validator:
         self.cache[key] = method
     
     def __call__(self, value):
-        print(f"Validating value: {value}")
         for key, method in self.cache.items():
             self.error.params[key] = method(value)
+        if isinstance(value, EmptyValue): value = ""
 
         if not self.condition(value, self):
             raise self.error
@@ -118,6 +118,6 @@ class RequiredValidator(Validator):
     def __init__(self, lang: Language, name):
         super().__init__(
             lang, "required_error",
-            lambda value, obj: not isinstance(value, EmptyValue),
+            lambda value, obj: value != "",
             name=name
         )
