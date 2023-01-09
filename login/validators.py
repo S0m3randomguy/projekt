@@ -4,6 +4,10 @@ from django.db import models
 import string
 import re
 
+class EmptyValue:
+    def __init__(self):
+        pass
+    
 def get_error_message(lang: Language, code):
     return lang.sections["errors"][code]
 
@@ -24,6 +28,7 @@ class Validator:
         self.cache[key] = method
     
     def __call__(self, value):
+        print(f"Validating value: {value}")
         for key, method in self.cache.items():
             self.error.params[key] = method(value)
 
@@ -107,4 +112,12 @@ class DatabaseValidator(Validator):
                 obj.filter: value
             }),
             name=name, data=data, filter=filter
+        )
+
+class RequiredValidator(Validator):
+    def __init__(self, lang: Language, name):
+        super().__init__(
+            lang, "required_error",
+            lambda value, obj: not isinstance(value, EmptyValue),
+            name=name
         )

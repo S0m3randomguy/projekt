@@ -36,6 +36,7 @@
         "email_error"       : "%(email)s is not a valid e-mail address.",
         "mismatch_error"    : "Passwords must match.",
         "db_exists_error"   : "%(name)s is already in use.",
-        "credentials_error" : "Invalid credentials."
+        "credentials_error" : "Invalid credentials.",
+        "required_error"    : "%(name)s is required."
     }
 }

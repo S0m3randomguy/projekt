@@ -30,7 +30,9 @@ def form_method(request, method, process, file):
 
     if request.method == "POST":
         if form.is_valid():
-            response =  process(request, form)
+            response = process(request, form)
+            print(form.data)
+            print(form.cleaned_data)
         else: print(form.errors.as_json())
 
     return response
