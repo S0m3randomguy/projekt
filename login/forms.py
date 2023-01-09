@@ -68,7 +68,20 @@ def get_login_form(lang: Language, request=None):
                 )
             return cleaned
     
-    return LoginForm(request.POST or None)
+    return (
+        LoginForm(request.POST or None), 
+        {"icons": {
+            "username": [
+                '<i class="ri-user-line"></i>'
+            ],
+            "password": [
+                '<i class="ri-lock-line"></i>',
+                '<i class="ri-eye-off-line show-hide-pw" id="password_toggle_login"></i>'
+            ]
+        },
+        "non_field_errors": []
+        }
+    )
 
 def get_register_form(lang: Language, request=None):
     t = lang.translate
@@ -117,15 +130,15 @@ def get_register_form(lang: Language, request=None):
         
         name.widget = forms.TextInput(attrs={
             "type"          : "text",
-            "placeholder"   : NAME_PLACEHOLDER,
+            "placeholder"   : NAME_PLACEHOLDER
         })
         username.widget =  forms.TextInput(attrs={
             "type"          : "text",
-            "placeholder"   : USERNAME_PLACEHOLDER,
+            "placeholder"   : USERNAME_PLACEHOLDER
         })
         email.widget = forms.TextInput(attrs={
             "type"          : "text",
-            "placeholder"   : EMAIL_PLACEHOLDER,
+            "placeholder"   : EMAIL_PLACEHOLDER
         })
         password.widget = forms.TextInput(attrs={
             "type"          : "password",
@@ -156,4 +169,27 @@ def get_register_form(lang: Language, request=None):
                 )
             return cleaned
 
-    return RegisterForm(request.POST or None)
+    return (
+        RegisterForm(request.POST or None), 
+        {"icons": {
+            "name": [
+                '<i class="ri-user-line"></i>'
+            ],
+            "username": [
+                '<i class="ri-account-circle-line"></i>'
+            ],
+            "email": [
+                '<i class="ri-mail-line"></i>'
+            ],
+            "password": [
+                '<i class="ri-lock-line"></i>',
+                '<i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>'
+            ],
+            "confirm": [
+                '<i class="ri-lock-line"></i>',
+                '<i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>'
+            ]
+        },
+        "non_field_errors": ["confirm"]
+        }
+    )

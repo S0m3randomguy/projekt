@@ -19,11 +19,12 @@ def process_register(request, form: forms.ModelForm):
 def form_method(request, method, process, file):
     lang = request.GET.get("lang", None)
     language = Language(verify_language(lang) or "en-US")
-    form = method(language, request)
+    form, assets = method(language, request)
 
     context = {
         "form"     : form,
-        "language" : language
+        "language" : language,
+        "assets"   : assets
     }
 
     response = render(request or None, file, context)
@@ -31,8 +32,6 @@ def form_method(request, method, process, file):
     if request.method == "POST":
         if form.is_valid():
             response = process(request, form)
-            print(form.data)
-            print(form.cleaned_data)
         else: print(form.errors.as_json())
 
     return response
