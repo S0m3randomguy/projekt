@@ -185,7 +185,7 @@ def get_register_form(lang: Language, request=None):
             ],
             "confirm": [
                 '<i class="material-icons">vpn_key</i>',
-                '<i class="material-icons show-hide-pw" id="password_toggle_register">visibility_off</i>'
+                '<i class="material-icons show-hide-pw" id="confirmation_toggle">visibility_off</i>'
             ]
         },
         "non_field_errors": ["confirm"]
