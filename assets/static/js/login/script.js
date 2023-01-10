@@ -1,8 +1,8 @@
 /* INITIALIZATION */
 // Icon definitions
 
-const ICON_SHOW_PASSWORD = "ri-eye-line";
-const ICON_HIDE_PASSWORD = "ri-eye-off-line";
+const ICON_SHOW_PASSWORD = "visibility";
+const ICON_HIDE_PASSWORD = "visibility_off";
 
 // Matching icons to password fields
 const MATCH_FIELDS = {
@@ -22,10 +22,10 @@ TOGGLES.forEach(toggle => {
         let password_field = document.getElementById(MATCH_FIELDS[toggle.id]);
         if (password_field.type === "password") {
             password_field.type = "text";
-            toggle.classList.replace(ICON_HIDE_PASSWORD, ICON_SHOW_PASSWORD)
+            toggle.innerHTML = toggle.innerHTML.replace(ICON_HIDE_PASSWORD, ICON_SHOW_PASSWORD)
         } else {
             password_field.type = "password";
-            toggle.classList.replace(ICON_SHOW_PASSWORD, ICON_HIDE_PASSWORD)
+            toggle.innerHTML = toggle.innerHTML.replace(ICON_SHOW_PASSWORD, ICON_HIDE_PASSWORD)
         }
     })
 })

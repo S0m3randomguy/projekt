@@ -72,11 +72,11 @@ def get_login_form(lang: Language, request=None):
         LoginForm(request.POST or None), 
         {"icons": {
             "username": [
-                '<i class="ri-user-line"></i>'
+                '<i class="material-icons">person</i>'
             ],
             "password": [
-                '<i class="ri-lock-line"></i>',
-                '<i class="ri-eye-off-line show-hide-pw" id="password_toggle_login"></i>'
+                '<i class="material-icons">vpn_key</i>',
+                '<i class="material-icons show-hide-pw" id="password_toggle_login">visibility_off</i>'
             ]
         },
         "non_field_errors": []
@@ -123,8 +123,6 @@ def get_register_form(lang: Language, request=None):
         ])
         confirm = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
             RequiredValidator(lang, CONFIRM_PLACEHOLDER),
-            MaxLengthValidator(lang, CONFIRM_PLACEHOLDER, MAX_PASSWORD_LENGTH),
-            MinLengthValidator(lang, CONFIRM_PLACEHOLDER, MIN_PASSWORD_LENGTH),
             ExtendedAsciiValidator(lang, CONFIRM_PLACEHOLDER)
         ])
         
@@ -173,21 +171,21 @@ def get_register_form(lang: Language, request=None):
         RegisterForm(request.POST or None), 
         {"icons": {
             "name": [
-                '<i class="ri-user-line"></i>'
+                '<i class="material-icons">person</i>'
             ],
             "username": [
-                '<i class="ri-account-circle-line"></i>'
+                '<i class="material-icons">account_circle</i>'
             ],
             "email": [
-                '<i class="ri-mail-line"></i>'
+                '<i class="material-icons">email</i>'
             ],
             "password": [
-                '<i class="ri-lock-line"></i>',
-                '<i class="ri-eye-off-line show-hide-pw" id="password_toggle_register"></i>'
+                '<i class="material-icons">vpn_key</i>',
+                '<i class="material-icons show-hide-pw" id="password_toggle_register">visibility_off</i>'
             ],
             "confirm": [
-                '<i class="ri-lock-line"></i>',
-                '<i class="ri-eye-off-line show-hide-pw" id="confirmation_toggle"></i>'
+                '<i class="material-icons">vpn_key</i>',
+                '<i class="material-icons show-hide-pw" id="password_toggle_register">visibility_off</i>'
             ]
         },
         "non_field_errors": ["confirm"]

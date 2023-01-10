@@ -71,7 +71,10 @@ body{
 /* title */
 .container .form .title{
     color: #ff8800;
-    background: -webkit-linear-gradient(#db7500, #ff8800);
+    background: radial-gradient(
+        30% 200% at 50% top,
+        #ff9a48, #b15408
+        );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -103,10 +106,10 @@ body{
         #616161, #353535
         );
     box-shadow: 0 3px 15px #1f1f1f;
-    padding: 0 60px 0 45px;
+    padding: 0 60px 0 60px;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     border-top: 2px solid transparent;
 }
@@ -118,10 +121,16 @@ body{
 /* icons */
 .input-field i{
     position: absolute;
-    top: 8%;
+    top: -3%;
     padding: 10px;
-    color: #ff8800;
-    font-size: 23px;
+    background: radial-gradient(
+        30% 200% at 50% top,
+        #ff9a48, #b15408
+        );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 32px;
+    filter: drop-shadow(3px 5px 2px #2e2e2e);
 }
 
 .input-field input:is(:focus, :valid) ~ i{
@@ -130,7 +139,7 @@ body{
 
 /* show hide password */
 .input-field i.show-hide-pw{
-    right: 0;
+    right: 1.5%;
     cursor: pointer;
     padding: 10px;
 }
@@ -139,7 +148,7 @@ body{
 .error-icon {
     position: absolute;
     top: 25%;
-    right: 4%;
+    right: 5%;
     width: 25px;
     height: 25px;
     font-size: 20px;
@@ -148,17 +157,25 @@ body{
     justify-content: center;
     display: flex;
     color: #fff;
-    background-color: #dd1d1d;
+    background: radial-gradient(
+        30% 200% at 50% top,
+        #e73a3a, #ce1212
+        );
     cursor: pointer;
+    filter: drop-shadow(3px 5px 2px #2e2e2e);
 }
 
 .error-text {
     opacity: 0;
     position: absolute;
     bottom: 100%;
-    right: 0%;
+    right: 1%;
     width: 200px;
     background-color: #dd1d1d;
+    background: radial-gradient(
+        30% 200% at 50% top,
+        #e73a3a, #ce1212
+        );
     color: #fff;
     padding: 8px;
     border-radius: 3px;
@@ -186,12 +203,12 @@ body{
 
 .input-field:nth-child(5) .error-icon,
  .input-field:nth-child(6) .error-icon {
-    right: 12%;
+    right: 16%;
 }
 
 .input-field:nth-child(5) .error-text,
 .input-field:nth-child(6) .error-text {
-    right: 8%;
+    right: 12%;
 }
 
 .container .form.login .error-text {
@@ -199,23 +216,27 @@ body{
 }
 
 .container .form.login .input-field:nth-child(2) .error-text {
-    right: 1.5%;
+    right: 3.5%;
 }
 
 .container .form.login .input-field:nth-child(3) .error-icon {
-    right: 12%;
+    right: 16%;
 }
 
 .container .form.login .input-field:nth-child(3) .error-text {
-    right: 9.8%;
+    right: 13.8%;
 }
 
 .container .form.login .error-text::after {
     margin-left: 40px;
 }
 
+.container .form.login .input-field:nth-child(3) input {
+    padding: 0 100px 0 60px;
+}
+
 .input-field:nth-child(5) input, .input-field:nth-child(6) input {
-    padding: 0 95px 0 45px;
+    padding: 0 100px 0 60px;
 }
 
 /* checkbox */
@@ -242,7 +263,7 @@ body{
     font-size: 14px;
 }
 
-/* forgot password and sign up now text */
+/* forgot password and register now text */
 .form a.text{
     color: #ff8800;
     text-decoration: none;
@@ -251,7 +272,7 @@ body{
     text-decoration: underline;
 }
 
-/* log/sign in button */
+/* log/register button */
 .form .button{
     margin-top: 35px;
 }
@@ -272,7 +293,8 @@ body{
     color: #e6e6e6;
     background: radial-gradient(
         30% 200% at 50% top,
-        #ff8800, #ff8800);
+        #ff9a48, #b15408
+        );
 }
 
 .form .login-register{
