@@ -57,10 +57,10 @@ body{
         );
 }
 
-.container .signup{
+.container .register{
     opacity: 0;
 }
-.container.active .signup{
+.container.active .register{
     opacity: 1;
 }
 
@@ -275,7 +275,7 @@ body{
         #ff8800, #ff8800);
 }
 
-.form .login-signup{
+.form .login-register{
     margin-top: 30px;
     text-align: center;
 }

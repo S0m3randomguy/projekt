@@ -6,7 +6,7 @@
         "password_placeholder"  : "Password",
         "forgot_password"       : "Forgot password?",
         "not_a_member"          : "Not a member?",
-        "sign_up_now"           : "Sign up now"
+        "register_now"          : "Register now"
     },
 
     "register":

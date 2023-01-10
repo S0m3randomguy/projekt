@@ -1,67 +1,16 @@
-<!DOCTYPE html>
-
+{% extends "../base.html" %}
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login/styles.css' %}"/>
+{% block title %}FixxIt - Register{% endblock %}
+{% block script %}<script src="{% static 'js/register/script.js' %}"></script>{% endblock %}
 
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    
-    <link rel="icon" href="{% static 'images/wrench.ico' %}" type="image/x-icon"/>
-    <title>FixxIt - Register</title>
-
-</head>
-
-<body id="bg" style="background-image: url('{% static 'images/mountains.jpg' %}');">
-    <div class="dim"></div>
+{% block content %}
     <div class="container active">
         <div class="forms">
-            <div class="form signup">
+            <div class="form register">
                 <span class="title">{{ language.sections.register.register_title }}</span>
                 
-                <form action="/register/" method="post">
-                    {% csrf_token %}
-                    {% for field in form %}
-                    <div class="input-field">
-                        {{ field }}
-
-                        {% for key, value in assets.icons.items %}
-                            {% if key == field.name %}
-                                {% for icon in value %}
-                                    {{ icon|safe }}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if field.errors %}
-                            <div class="error">
-                                <div class="error-icon">!</div>
-                                <div class="error-text">{{ field.errors.0 }}</div>
-                            </div>
-                        {% elif field.name in assets.non_field_errors and form.non_field_errors %}
-                            <div class="error">
-                                <div class="error-icon">!</div>
-                                <div class="error-text">{{ form.non_field_errors.0 }}</div>
-                            </div>
-                        {% endif %}
-
-                    </div>
-                    {% endfor %}
-
-                    <div class="checkbox-text">
-                        <div class="checkbox-content">
-                            <input type="checkbox" id="termCon" required>
-                            <label for="termCon" class="text">{{ language.sections.register.terms_and_conditions }}</label>
-                        </div>
-                    </div>
-                    <div class="input-field button">
-                        <input type="submit" value="Sign up">
-                    </div>
-                </form>
+                {% include "../form.html" with name="register" %}
 
                 <div class="login-signup">
                     <span class="text">{{ language.sections.register.already_a_member }}
@@ -89,6 +38,6 @@
             {% endif %}
         </a>
     </div>
-    <script src="{% static 'js/login/script.js' %}"></script>
-</body>
+{% endblock %}
+
 </html>
