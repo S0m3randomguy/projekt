@@ -123,8 +123,6 @@ def get_register_form(lang: Language, request=None):
         ])
         confirm = forms.CharField(required=False, empty_value=EmptyValue(), validators=[
             RequiredValidator(lang, CONFIRM_PLACEHOLDER),
-            MaxLengthValidator(lang, CONFIRM_PLACEHOLDER, MAX_PASSWORD_LENGTH),
-            MinLengthValidator(lang, CONFIRM_PLACEHOLDER, MIN_PASSWORD_LENGTH),
             ExtendedAsciiValidator(lang, CONFIRM_PLACEHOLDER)
         ])
         
