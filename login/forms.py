@@ -79,7 +79,7 @@ def get_login_form(lang: Language, request=None):
                 '<i class="material-icons show-hide-pw" id="password_toggle_login">visibility_off</i>'
             ]
         },
-        "non_field_errors": []
+        "non_field_errors": ["username", "password"]
         }
     )
 

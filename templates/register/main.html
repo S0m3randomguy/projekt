@@ -10,7 +10,7 @@
             <div class="form register">
                 <span class="title">{{ language.sections.register.register_title }}</span>
                 
-                {% include "../form.html" with name="register" button=language.sections.register.register_title %}
+                {% include "../form.html" with form=form assets=assets name="register" button=language.sections.register.register_title %}
 
                 <div class="login-register">
                     <span class="text">{{ language.sections.register.already_a_member }}
