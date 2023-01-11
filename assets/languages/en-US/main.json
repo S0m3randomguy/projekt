@@ -1,12 +1,12 @@
 {
     "login": 
     {
-        "login_title"           : "Log in",
-        "username_placeholder"  : "Username/E-mail",
-        "password_placeholder"  : "Password",
-        "forgot_password"       : "Forgot password?",
-        "not_a_member"          : "Not a member?",
-        "register_now"          : "Register now"
+        "login_title"          : "Log in",
+        "username_placeholder" : "Username",
+        "password_placeholder" : "Password",
+        "forgot_password"      : "Forgot password?",
+        "not_a_member"         : "Not a member?",
+        "register_now"         : "Register now"
     },
 
     "register":
@@ -23,20 +23,20 @@
     },
 
     "other": {
-        "charset_letters"       : "letters",
-        "charset_digits"        : "digits",
-        "charset_underscore"    : "underscore",
-        "charset_ascii"         : "ascii characters"
+        "charset_letters"    : "letters",
+        "charset_digits"     : "digits",
+        "charset_underscore" : "underscore",
+        "charset_ascii"      : "ascii characters"
     },
 
     "errors": {
         "min_length_error"  : "%(name)s must be at least %(limit)s character(s) long.",
         "max_length_error"  : "%(name)s cannot be over %(limit)s character(s) long.",
         "charset_error"     : "%(name)s must consist of only %(chars)s.",
-        "email_error"       : "%(email)s is not a valid e-mail address.",
+        "email_error"       : "Please enter a valid e-mail address.",
         "mismatch_error"    : "Passwords must match.",
         "db_exists_error"   : "%(name)s is already in use.",
         "credentials_error" : "Invalid credentials.",
-        "required_error"    : "%(name)s is required."
+        "required_error"    : "This field is required."
     }
 }

@@ -1,36 +1,42 @@
 {
     "login": 
     {
-        "login_title"           : "Prijavi se",
-        "username_placeholder"  : "Korisničko ime/E-pošta",
-        "password_placeholder"  : "Zaporka",
-        "forgot_password"       : "Zaboravio si zaporku?",
-        "not_a_member"          : "Nemaš račun?",
-        "sign_up_now"           : "Registriraj se"
+        "login_title"          : "Prijavi se",
+        "username_placeholder" : "Korisničko ime",
+        "password_placeholder" : "Zaporka",
+        "forgot_password"      : "Zaboravio si zaporku?",
+        "not_a_member"         : "Nemaš račun?",
+        "register_now"         : "Registriraj se"
     },
 
     "register":
     {
-        "register_title"            : "Registriraj se",
-        "full_name_placeholder"     : "Puno ime",
-        "username_placeholder"      : "Korisničko ime",
-        "email_placeholder"         : "E-pošta",
-        "password_placeholder"      : "Zaporka",
-        "confirmation_placeholder"  : "Potvrdi zaporku",
-        "terms_and_conditions"      : "Prihvaćam sve odredbe i uvjete",
-        "already_a_member"          : "Imaš račun?",
-        "log_in_now"                : "Prijavi se"
+        "register_title"       : "Registriraj se",
+        "name_placeholder"     : "Puno ime",
+        "username_placeholder" : "Korisničko ime",
+        "email_placeholder"    : "E-pošta",
+        "password_placeholder" : "Zaporka",
+        "confirm_placeholder"  : "Potvrdi zaporku",
+        "terms_and_conditions" : "Prihvaćam sve odredbe i uvjete",
+        "already_a_member"     : "Imaš račun?",
+        "log_in_now"           : "Prijavi se"
     },
 
     "other": {
-        "charset_letters"       : "slova",
-        "charset_digits"        : "znamenki",
-        "charset_underscore"    : "donje crte"
+        "charset_letters"    : "slova",
+        "charset_digits"     : "znamenki",
+        "charset_underscore" : "donje crte",
+        "charset_ascii"      : "ascii znakova"
     },
 
     "errors": {
-        "min_length_error" : "Polje '%(name)s' mora biti barem %(limit)s znak(ova) dugačko.",
-        "max_length_error" : "Polje '%(name)s' ne može biti preko %(limit)s znak(ova) dugačko.",
-        "charset_error"    : "Polje '%(name)s' se smije sastojati od %(charset)."
+        "min_length_error"  : "Polje %(name)s mora biti najmanje %(limit)s znak(ova) dugačko.",
+        "max_length_error"  : "Polje %(name)s ne može biti više od %(limit)s znak(ova) dugačko.",
+        "charset_error"     : "Polje %(name)s može sadržavati samo %(chars)s.",
+        "email_error"       : "Unesite pravilnu adresu e-pošte.",
+        "mismatch_error"    : "Zaporke se moraju podudarati.",
+        "db_exists_error"   : "%(name)s se već upotrebljava.",
+        "credentials_error" : "Neispravni podatci.",
+        "required_error"    : "Ovo polje je obvezno."
     }
 }
