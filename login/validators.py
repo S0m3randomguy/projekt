@@ -22,14 +22,8 @@ class Validator:
             message, code=code,
             params=kwargs
         )
-        self.cache = {}
-    
-    def reconstruct(self, key, method):
-        self.cache[key] = method
     
     def __call__(self, value):
-        for key, method in self.cache.items():
-            self.error.params[key] = method(value)
         if isinstance(value, EmptyValue): value = ""
 
         if not self.condition(value, self):
@@ -92,7 +86,6 @@ class EmailValidator(RegexValidator):
             lang, name,
             expression, "email_error"
         )
-        self.reconstruct("email", lambda value: value)
 
 class StrengthValidator(Validator):
     def __init__(self, lang: Language, name):
@@ -115,9 +108,8 @@ class DatabaseValidator(Validator):
         )
 
 class RequiredValidator(Validator):
-    def __init__(self, lang: Language, name):
+    def __init__(self, lang: Language):
         super().__init__(
             lang, "required_error",
-            lambda value, obj: value != "",
-            name=name
+            lambda value, obj: value != ""
         )
